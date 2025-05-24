@@ -1,11 +1,6 @@
 "use client"
 
 import * as React from "react"
-// import Link from "next/link"
-// import { Menu, } from "lucide-react"
-// import { Button } from "@/components/ui/button"
-// import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
-// import { useMediaQuery } from "@/hooks/use-media-query"
 import { ModeToggle } from "./ModeToggle"
 import {
     Navbar as Nav,
@@ -35,9 +30,9 @@ export function Navbar() {
                 {/* Desktop Navigation */}
                 <NavBody>
                     {/* <NavbarLogo /> */}
-                    <span className="font-bold text-lg font-sans">Ayush Kumar Gupta</span>
+                    <span className="font-bold   text-2xl  font-sans">Ayush Kumar Gupta</span>
                     <NavItems items={navItems} />
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-6">
                         <NavbarButton variant="secondary">
                             <ModeToggle />
                         </NavbarButton>
