@@ -19,18 +19,18 @@ export function Navbar() {
 
 
     const navItems = [
-        { name: "Home", link: "/" },
+        { name: "Home", link: "#top" },
         { name: "About", link: "#about" },
         { name: "Skills", link: "#skills" },
     ]
 
     return (
-        <div className="fixed w-full p-5 z-30">
+        <div className="fixed w-full p-5 z-20">
             <Nav>
                 {/* Desktop Navigation */}
                 <NavBody>
                     {/* <NavbarLogo /> */}
-                    <span className="font-bold   text-2xl  font-sans">Ayush Kumar Gupta</span>
+                    <span className="font-bold   text-2xl  font-sans"> &lt;Ak/&gt;</span>
                     <NavItems items={navItems} />
                     <div className="flex items-center gap-6">
                         <NavbarButton variant="secondary">
@@ -42,7 +42,7 @@ export function Navbar() {
                 {/* Mobile Navigation */}
                 <MobileNav>
                     <MobileNavHeader>
-                        <span className="font-bold text-md font-sans">Ayush Kumar Gupta</span>
+                        <span className="font-bold text-md font-sans">&lt;Ak/&gt;</span>
                         <MobileNavToggle
                             isOpen={isMobileMenuOpen}
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -69,7 +69,7 @@ export function Navbar() {
                                 variant="secondary"
 
                             >
-                                <ModeToggle/>
+                                <ModeToggle />
                             </NavbarButton>
                         </div>
                     </MobileNavMenu>

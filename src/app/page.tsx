@@ -1,3 +1,5 @@
+'use client'
+import About from "@/components/About";
 import Hero from "@/components/Hero";
 import { Navbar } from "@/components/Navbar";
 
@@ -6,10 +8,10 @@ import { Navbar } from "@/components/Navbar";
 
 export default function Home() {
   return (
-    <div className="container mx-auto px-4 flex flex-col">
+    <div id="#top" className=" mx-auto py-2 px-4 flex flex-col">
       <Navbar/>
       <Hero />  
-
+      <About/>
     </div>
   );
 }

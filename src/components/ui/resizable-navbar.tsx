@@ -114,6 +114,17 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
     );
 };
 
+const scrollToId = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+        const yOffset = -100; 
+        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+        window.scrollTo({ top: y, behavior: "smooth" });
+    }
+};
+
+
 export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
     const [hovered, setHovered] = useState<number | null>(null);
 
@@ -128,7 +139,10 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
             {items.map((item, idx) => (
                 <a
                     onMouseEnter={() => setHovered(idx)}
-                    onClick={onItemClick}
+                    onClick={() => {
+                        scrollToId(item.link.replace("#", ""));
+                        onItemClick?.();
+                    }}
                     className="relative px-4 py-2 text-neutral-600 dark:text-neutral-300"
                     key={`link-${idx}`}
                     href={item.link}
