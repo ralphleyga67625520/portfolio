@@ -5,39 +5,47 @@ import { BackgroundGradient } from './ui/background-gradient';
 
 
 
-const words = ["Full Stack Developer", "Coding Nerd", "Problem Solver", ];
+const words = ["Full Stack Developer", "Coding Nerd", "Problem Solver",];
 
-    
+
 const Hero = () => {
     return (
-        <section className='mt-20 w-full md:h-1/2 h-[500px] flex gap-10 items-center md:flex-row flex-col justify-between md:px-52 px-20 md:space-x-40 text-white'>
-            <div className="h-[40rem] flex justify-center items-center px-4">
-                <div className="md:text-4xl md:text-start text-center text-2xl mx-auto flex flex-col gap-4 text-neutral-400 font-semibold dark:text-neutral-400">
-                    👋🏻Hi, I&apos;m Ayush
-                    <span className=' flex gap-2 items-center'>
+        <section className="w-full mt-40 px-6 sm:px-10 md:px-20 lg:px-32 xl:px-52 text-white">
+            <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10">
+
+                {/* Left: Text Content */}
+                <div className="text-center md:text-left flex flex-col gap-4 text-neutral-500 font-semibold text-3xl sm:text-3xl md:text-4xl dark:text-neutral-400 p-5">
+
+                    <span className='flex items-center justify-center md:justify-start gap-2'>
+                        👋🏻Hi, I&apos;m
+                        <span className='dark:text-orange-500 text-orange-400 font-extrabold '>
+                            Ayush
+                        </span>
+                    </span>
+                    <span className="flex gap-2 items-center justify-center md:justify-start">
                         a&nbsp;
                         <ContainerTextFlip
-                            textClassName='tracking-tight'
+                            textClassName="tracking-tight font-semibold"
                             animationDuration={700}
-                            words={words} />
-                        
+                            words={words}
+                        />
                     </span>
-                        from India.
+                    from India.
+                </div>
+
+                {/* Right: Image */}
+                <div className="flex justify-center md:justify-end">
+                    <BackgroundGradient className="rounded-full">
+                        <Image
+                            src="/ayush.jpg"
+                            alt="Hero Image"
+                            width={300}
+                            height={300}
+                            className="rounded-full object-cover"
+                        />
+                    </BackgroundGradient>
                 </div>
             </div>
-            
-            <BackgroundGradient className="rounded-full flex-1">
-
-                <Image
-                    src="/ayush.jpg"
-                    alt="Hero Image"
-                    width={400}
-                    height={400}
-                    className='rounded-full'
-                />
-
-            </BackgroundGradient>
-
         </section>
     )
 }
