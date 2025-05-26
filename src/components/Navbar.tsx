@@ -25,7 +25,7 @@ export function Navbar() {
     ]
 
     return (
-        <div className="fixed w-full p-5 z-20">
+        <div className="fixed w-full z-20">
             <Nav>
                 {/* Desktop Navigation */}
                 <NavBody>

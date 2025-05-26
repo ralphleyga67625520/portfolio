@@ -1,12 +1,17 @@
 import { stagger } from 'motion'
-import { useAnimate, motion } from 'motion/react'
+import { useAnimate, motion, useInView } from 'motion/react'
 import React, { useEffect } from 'react'
 
 const TextGenerateEffect = ({ text }: { text: string }) => {
     const [scope, animate] = useAnimate()
+    
+    const isInView = useInView(scope, {  margin: '-100px' })
     useEffect(() => {
-        startAnimation()
-    }, [])
+        if(isInView){
+
+            startAnimation()
+        }
+    }, [isInView])
 
     const startAnimation = () => {
         animate(

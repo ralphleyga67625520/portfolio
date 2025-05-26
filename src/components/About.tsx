@@ -24,9 +24,9 @@ const About = () => {
             ref={ref}
             style={{ opacity: opacityContent, y: translateContent }}
             id="about"
-            className="mx-auto border rounded-lg border-orange-100/25 flex flex-col gap-5 px-6 py-20 sm:px-10 md:px-20 lg:px-32 "
+            className="mx-auto rounded-lg  flex flex-col gap-5 px-2 py-20 sm:px-10 md:px-20 lg:px-28 "
         >
-            <h1 className="text-3xl sm:text-5xl md:text-4xl lg:text-5xl font-sans font-bold text-center underline underline-offset-8">
+            <h1 className="text-3xl sm:text-5xl md:text-4xl lg:text-4xl font-sans font-bold text-center underline underline-offset-8">
                 About Me
             </h1>
 
@@ -38,10 +38,14 @@ const About = () => {
                         autoplay
                     />
                 </div>
-
-                <span className="font-sans text-neutral-700 dark:text-neutral-300 font-semibold text-lg sm:text-base md:text-lg lg:text-2xl leading-relaxed text-justify">
-                    <TextGenerateEffect text="I'm a Full-Stack Developer with a strong focus on backend development, API design, and building scalable systems. I enjoy solving real-world problems through clean, maintainable code and robust logic. While I often rely on modern UI libraries to handle the frontend, my strength lies in making everything work reliably behind the scenes. I’m always exploring better ways to architect systems, integrate tools, and contribute to meaningful projects that make an impact." />
-                </span>
+ 
+                <span className="font-sans w-full text-neutral-700 dark:text-neutral-300 font-semibold text-lg sm:text-base md:text-lg lg:text-xl leading-relaxed text-justify">
+                    <TextGenerateEffect text="I'm a Full-Stack Developer passionate about backend development, API design, and building scalable systems. I love solving real-world problems through clean, maintainable code and robust logic."/>
+                    <br/>
+                    <TextGenerateEffect text="My strength lies in backend systems, working with tools like Node.js, Express, and MongoDB, while also using modern UI libraries for smooth frontend experiences. I'm always looking to optimize systems, integrate tools, and create reliable, maintainable architectures." />
+                    <br/>
+                    <TextGenerateEffect text="I enjoy contributing to meaningful projects—especially those that challenge me to grow, collaborate, and make an impact."/>
+                </span> 
             </div>
         </motion.div>
     )

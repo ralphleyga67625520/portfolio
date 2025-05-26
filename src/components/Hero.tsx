@@ -10,7 +10,7 @@ const words = ["Full Stack Developer", "Coding Nerd", "Problem Solver",];
 
 const Hero = () => {
     return (
-        <section className="w-full xl:h-[80vh] mt-52 px-6 sm:px-10 md:px-20 lg:px-32 xl:px-52 text-white">
+        <section className="w-full xl:h-[80vh] mt-20 xl:mt-52 px-6 sm:px-10 md:px-20 lg:px-32 xl:px-52 text-white">
             <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10">
 
                 {/* Left: Text Content */}
@@ -41,7 +41,7 @@ const Hero = () => {
                             alt="Hero Image"
                             width={400}
                             height={400}
-                            className="rounded-full object-cover"
+                            className="rounded-full "
                         />
                     </BackgroundGradient>
                 </div>
