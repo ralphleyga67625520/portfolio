@@ -71,7 +71,7 @@ export default function Skills() {
     }
 
     return (
-        <div id="skills" className=" transition-colors duration-300 mx-auto rounded-lg  flex flex-col gap-5 px-2 py-20 sm:px-10 md:px-20 lg:px-28">
+        <div id="skills" className=" transition-colors duration-300 mx-auto rounded-lg  flex flex-col gap-5 px-2 py-24 sm:px-10 md:px-20 lg:px-32">
             <div className=" mx-auto">
                 {/* Header */}
                 <motion.div
@@ -151,40 +151,8 @@ export default function Skills() {
                     </motion.div>
                 )}
 
-                {/* Category Stats */}
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.4 }}
-                    className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16"
-                >
-                    {categories.slice(1).map((category) => {
-                        const categorySkills = skills.filter((skill) => skill.category === category)
-
-                        return (
-                            <motion.div
-                                key={category}
-                                className="bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl p-6 text-center"
-                                whileHover={{
-                                    scale: 1.02,
-                                    boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-                                }}
-                                transition={{ duration: 0.2 }}
-                            >
-                                <div className="inline-flex items-center justify-center w-12 h-12 mb-4 rounded-full bg-gray-100 dark:bg-gray-800">
-                                    <span className="text-xl">
-                                        {category === "Programming Languages" ? "💻" : category === "Frontend" ? "🎨" : "⚙️"}
-                                    </span>
-                                </div>
-                                <h3 className="text-black dark:text-white font-semibold text-lg mb-1">{category}</h3>
-                                <p className="text-gray-600 dark:text-gray-400 text-3xl font-bold mb-1">{categorySkills.length}</p>
-                                <p className="text-gray-500 dark:text-gray-500 text-sm">
-                                    {categorySkills.length === 1 ? "skill" : "skills"}
-                                </p>
-                            </motion.div>
-                        )
-                    })}
-                </motion.div>
+                
+                
             </div>
         </div>
     )
