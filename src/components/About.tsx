@@ -39,7 +39,7 @@ const About = () => {
                     />
                 </div>
  
-                <span className="font-sans w-full text-neutral-700 dark:text-neutral-300 font-semibold text-lg sm:text-base md:text-lg lg:text-xl leading-relaxed text-justify">
+                <span className="font-sans w-full text-neutral-900 dark:text-neutral-300 font-semibold text-lg sm:text-base md:text-lg lg:text-xl leading-relaxed text-justify">
                     <TextGenerateEffect text="I'm a Full-Stack Developer passionate about backend development, API design, and building scalable systems. I love solving real-world problems through clean, maintainable code and robust logic."/>
                     <br/>
                     <TextGenerateEffect text="My strength lies in backend systems, working with tools like Node.js, Express, and MongoDB, while also using modern UI libraries for smooth frontend experiences. I'm always looking to optimize systems, integrate tools, and create reliable, maintainable architectures." />
