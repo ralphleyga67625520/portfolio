@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useSpring, useTransform } from "motion/react"
 import React, { useRef, useState } from "react"
-import { AceternityIcon, CSSIcon, ExpressIcon, GithubIcon, GitIcon, GoLangIcon, GraphQLIcon, HTMLIcon, JavaIcon, JavaSciptIcon, MongoDBIcon, NextJsIcon, NodeJsIcon, PostgresIcon, PostmanIcon, PrismaIcon, ReactIcon, ReduxIcon, ShadCNIcon, TailwindIcon, TypeScriptIcon, VsCodeIcon } from "./ui/icons"
+import {  CPPIcon, CSSIcon, ExpressIcon, GithubIcon, GitIcon, GoLangIcon, GraphQLIcon, HTMLIcon, JavaIcon, JavaSciptIcon, MongoDBIcon, NextJsIcon, NodeJsIcon, PostgresIcon, PostmanIcon, PrismaIcon, ReactIcon, ReduxIcon, TailwindIcon, TypeScriptIcon, DrizzleIcon, JWTIcon, MySQLIcon, AceternityIcon, ShadCNIcon } from "./ui/icons"
 
 interface Skill {
     name: string
@@ -12,19 +12,18 @@ interface Skill {
 
 const skills: Skill[] = [
     // Programming Languages
-    { name: "HTML", category: "Programming Languages", icon: <HTMLIcon /> },
-    { name: "CSS", category: "Programming Languages", icon: <CSSIcon /> },
     { name: "JavaScript", category: "Programming Languages", icon: <JavaSciptIcon /> },
     { name: "TypeScript", category: "Programming Languages", icon: <TypeScriptIcon /> },
+    {name: "C++",category:"Programming Languages", icon: <CPPIcon/>},
     { name: "Java", category: "Programming Languages", icon: <JavaIcon /> },
     { name: "Go", category: "Programming Languages", icon: <GoLangIcon /> },
-
+    
     // Frontend
+    { name: "HTML", category: "Frontend", icon: <HTMLIcon /> },
+    { name: "CSS", category: "Frontend", icon: <CSSIcon /> },
+    { name: "Tailwind CSS", category: "Frontend", icon: <TailwindIcon /> },
     { name: "React", category: "Frontend", icon: <ReactIcon /> },
     { name: "Next.js", category: "Frontend", icon: <NextJsIcon /> },
-    { name: "AceternityUI", category: "Frontend", icon: <AceternityIcon /> },
-    { name: "Tailwind CSS", category: "Frontend", icon: <TailwindIcon /> },
-    { name: "ShadCN", category: "Frontend", icon: <ShadCNIcon /> },
     { name: "Redux", category: "Frontend", icon: <ReduxIcon /> },
 
     // Backend
@@ -32,17 +31,22 @@ const skills: Skill[] = [
     { name: "Express.js", category: "Backend", icon: <ExpressIcon /> },
     { name: "Next.js", category: "Backend", icon: <NextJsIcon /> },
     { name: "GraphQL", category: "Backend", icon: <GraphQLIcon /> },
+    { name: "JWT", category: "Backend", icon: <JWTIcon /> },
 
     // Databases
     { name: "PostgreSQL", category: "Databases", icon: <PostgresIcon /> },
+    { name: "MySQL", category: "Databases", icon: <MySQLIcon /> },
+
     { name: "MongoDB", category: "Databases", icon: <MongoDBIcon /> },
-    { name: "PrismaORM", category: "Databases", icon: <PrismaIcon /> },
+    { name: "Prisma", category: "Databases", icon: <PrismaIcon /> },
+    { name: "Drizzle", category: "Databases", icon: <DrizzleIcon /> },
 
     //Tools
     { name: "Git", category: "Tools & Platforms", icon: <GitIcon /> },
     { name: "GitHub", category: "Tools & Platforms", icon: <GithubIcon /> },
     { name: "Postman", category: "Tools & Platforms", icon: <PostmanIcon /> },
-    { name: "VsCode", category: "Tools & Platforms", icon: <VsCodeIcon /> },
+    { name: "Aceternity", category: "Tools & Platforms", icon: <AceternityIcon /> },
+    { name: "ShadCN", category: "Tools & Platforms", icon: <ShadCNIcon /> },
 ]
 
 const categories = ["All", "Programming Languages", "Frontend", "Backend", "Databases", "Tools & Platforms"]
@@ -166,7 +170,7 @@ export default function Skills() {
                             <div className="p-4">
                                 <div className="flex md:flex-col items-center gap-4 sm:gap-6">
                                     <motion.div
-                                        className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 rounded-full text-xl sm:text-2xl lg:text-3xl"
+                                        className="flex items-center justify-center w-12 h-12 sm:w-12 sm:h-12 lg:w-16 lg:h-16 rounded-full text-xl sm:text-2xl lg:text-3xl"
                                         whileHover={{ scale: 1.1 }}
                                         transition={{ duration: 0.3 }}
                                     >
