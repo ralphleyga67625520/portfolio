@@ -3,6 +3,9 @@ import React from 'react'
 import { ContainerTextFlip } from './ui/container-text-flip';
 import { BackgroundGradient } from './ui/background-gradient';
 
+import { IconBrandGithub, IconBrandLinkedin, IconBrandX, } from '@tabler/icons-react';
+import Link from 'next/link';
+
 
 
 const words = ["Full Stack Developer", "Coding Nerd", "Problem Solver",];
@@ -30,6 +33,49 @@ const Hero = () => {
                         />
                     </span>
                     from India.
+                    <div className="flex gap-4 mb-20 md:mb-0 p-2 mt-10 justify-center md:justify-normal">
+                        <Link
+                            href="https://www.github.com/ayyush08"
+                            target="_blank"
+                            className="group/btn shadow-input relative flex h-10 items-center justify-start rounded-full  px-6 py-3 font-medium  dark:hover:bg-white transition-all text-neutral-700 dark:text-neutral-200 dark:hover:text-black  duration-200 hover:bg-neutral-900 hover:text-white"
+                            type="submit"
+                        >
+                            <IconBrandGithub className="h-8 w-8 " />
+                            
+                            
+                        </Link>
+                        <Link
+                            href="https://www.linkedin.com/in/ayush2908/"
+                            target="_blank"
+                            className="group/btn shadow-input relative flex h-10 items-center justify-start rounded-full  px-6 py-3 font-medium   dark:hover:bg-blue-500 transition-all duration-200 text-blue-600 dark:text-blue-400 dark:hover:text-white hover:bg-blue-500 hover:text-white"
+                            type="submit"
+                        >
+                            <IconBrandLinkedin className="h-8 w-8 " />
+                            
+                            
+                        </Link>
+                        <Link
+                            href="https://x.com/Ayush29081"
+                            target="_blank"
+                            className="group/btn shadow-input relative flex h-10 items-center justify-start rounded-full  px-6 py-3 font-medium   dark:hover:bg-white transition-all duration-200 text-black dark:text-white dark:hover:text-black hover:bg-black hover:text-white"
+                            type="submit"
+                        >
+                            <IconBrandX className="h-8 w-8 " />
+                            
+                            
+                        </Link>
+                        {/* <Link
+                            href="https://www.instagram.com/ayyush_24"
+                            target="_blank"
+                            className="group/btn shadow-input relative flex h-10 items-center justify-start rounded-full  px-6 py-3 font-mediumd  transition-all text-pink-600 dark:text-magenta-400 dark:hover:text-white  duration-200 hover:bg-pink-600 hover:text-white dark:hover:bg-pink-600"
+                            type="submit"
+                            
+                        >
+                            <IconBrandInstagram className="h-8 w-8 " />
+                            
+                            
+                        </Link> */}
+                    </div>
                 </div>
 
 
