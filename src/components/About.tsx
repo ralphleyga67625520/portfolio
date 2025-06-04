@@ -20,7 +20,7 @@ const About = () => {
     const opacityContent = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 0])
 
     return (
-        <motion.div
+        <motion.section
             ref={ref}
             style={{ opacity: opacityContent, y: translateContent }}
             id="about"
@@ -47,7 +47,7 @@ const About = () => {
                     <TextGenerateEffect text="I enjoy contributing to meaningful projects—especially those that challenge me to grow, collaborate, and make an impact."/>
                 </span> 
             </div>
-        </motion.div>
+        </motion.section>
     )
 }
 

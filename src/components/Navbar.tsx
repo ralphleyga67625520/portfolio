@@ -23,10 +23,11 @@ export function Navbar() {
         { name: "About", link: "#about" },
         { name: "Skills", link: "#skills" },
         { name: "Projects", link: "#projects" },
+        { name: "Education", link: "#education" },
     ]
 
     return (
-        <div className="fixed w-full z-20">
+        <main className="fixed w-full z-20">
             <Nav>
                 {/* Desktop Navigation */}
                 <NavBody>
@@ -76,6 +77,6 @@ export function Navbar() {
                     </MobileNavMenu>
                 </MobileNav>
             </Nav>
-        </div>
+        </main>
     )
 }

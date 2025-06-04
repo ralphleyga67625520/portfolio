@@ -114,7 +114,7 @@ export default function Skills() {
 
 
     return (
-        <motion.div
+        <motion.section
             ref={ref}
             style={{ y: translateContent }}
             id="skills" className=" transition-colors duration-300 mx-auto rounded-lg  flex flex-col gap-5 px-2 py-24 sm:px-10 md:px-20 lg:px-32">
@@ -189,6 +189,6 @@ export default function Skills() {
 
 
             </div>
-        </motion.div>
+        </motion.section>
     )
 }
