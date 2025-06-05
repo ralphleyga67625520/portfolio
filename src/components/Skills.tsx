@@ -126,7 +126,7 @@ export default function Skills() {
                     transition={{ duration: 0.3 }}
                     className="text-center mb-12"
                 >
-                    <h1 className="text-3xl sm:text-5xl md:text-4xl lg:text-4xl font-sans font-bold text-center">Technical Skills</h1>
+                    <h1 className="text-4xl sm:text-5xl font-sans font-bold text-center">Technical Skills</h1>
                     <p className="text-gray-600 dark:text-gray-400 text-md">Technologies and frameworks I work with</p>
                 </motion.div>
 

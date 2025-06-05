@@ -24,6 +24,7 @@ export function Navbar() {
         { name: "Skills", link: "#skills" },
         { name: "Projects", link: "#projects" },
         { name: "Education", link: "#education" },
+        { name: "Contact", link: "#contact" },
     ]
 
     return (

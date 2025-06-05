@@ -72,7 +72,7 @@ const Education = () => {
                     viewport={{ once: true }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-4xl sm:text-5xl font-bold text-black dark:text-white mb-4">
+                    <h2 className="text-4xl sm:text-5xl font-bold text-black dark:text-white mb-4 font-sans">
                         Education
                     </h2>
                     <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">

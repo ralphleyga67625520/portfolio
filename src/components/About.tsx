@@ -26,7 +26,7 @@ const About = () => {
             id="about"
             className="mx-auto rounded-lg  flex flex-col gap-5 px-2 py-20 sm:px-10 md:px-20 lg:px-28 "
         >
-            <h1 className="text-3xl sm:text-5xl md:text-4xl lg:text-4xl font-sans font-bold text-center underline underline-offset-8">
+            <h1 className="text-4xl sm:text-5xl  font-sans font-extrabold text-center ">
                 About Me
             </h1>
 

@@ -48,7 +48,7 @@ export function Projects() {
                     className="text-center mb-16"
                 >
                     <p className="font-semibold text-red-500">This section is still under development</p>
-                    <h2 className="text-3xl sm:text-5xl md:text-4xl lg:text-4xl font-sans font-bold text-center">Projects</h2>
+                    <h2 className="text-4xl sm:text-5xl font-bold text-black dark:text-white mb-4 font-sans">Projects</h2>
                     <p className="text-gray-600 dark:text-gray-400 text-md">
                         A collection of projects that showcase my skills in web development, design, and problem-solving.
                     </p>
