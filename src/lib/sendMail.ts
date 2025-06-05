@@ -3,7 +3,6 @@ import { Resend } from 'resend';
 
 if (!process.env.RESEND_API_KEY) {
     console.log("NO API KEY");
-    console.log(process.env.RESEND_API_KEY);
 
 }
 
@@ -26,7 +25,6 @@ export async function sendEmail(
             </div>
             `
         });
-        console.log(res);
         if (res.data) {
 
 

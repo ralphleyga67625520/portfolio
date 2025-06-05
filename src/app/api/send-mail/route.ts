@@ -15,7 +15,7 @@ export async function POST(req: Request) {
         const res = await sendEmail({ name, email, msg })
 
         if (res.success) {
-            console.log(res);
+            console.log(res.message);
         }
         else{
             return Response.json({
