@@ -12,6 +12,7 @@ import {
     MobileNavToggle,
     MobileNavMenu,
 } from "@/components/ui/resizable-navbar";
+import { Download } from "lucide-react";
 export function Navbar() {
 
 
@@ -26,6 +27,17 @@ export function Navbar() {
         { name: "Contact", link: "#contact" },
     ]
 
+    const handleDownloadResume = () => {
+        
+        const resumeUrl = "https://drive.google.com/uc?export=download&id=1AcM0v5qVLfWlIMyfnPm9nSk6DWoHziLH"
+        const link = document.createElement("a")
+        link.href = resumeUrl
+        link.download = "AyushKumarGupta_Resume.pdf"
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
+    }
+
     return (
         <main className="fixed w-full z-20">
             <Nav>
@@ -34,7 +46,18 @@ export function Navbar() {
                     {/* <NavbarLogo /> */}
                     <span className="font-bold   text-2xl  font-sans"> &lt;Ak/&gt;</span>
                     <NavItems items={navItems} />
-                    <div className="flex items-center gap-6">
+                    <div className="flex items-center">
+                        <NavbarButton
+                            onClick={() => {
+                                handleDownloadResume()
+                                setIsMobileMenuOpen(false)
+                            }}
+                            variant="secondary"
+                            className="flex items-center gap-2 w-full justify-center dark:bg-neutral-800 dark:text-white"
+                        >
+                            <Download className="h-4 w-4 dark:text-white" />Resume
+
+                        </NavbarButton>
                         <NavbarButton variant="secondary">
                             <ModeToggle />
                         </NavbarButton>
@@ -66,6 +89,17 @@ export function Navbar() {
                             </a>
                         ))}
                         <div className="flex w-full justify-center flex-col gap-4">
+                            <NavbarButton
+                                onClick={() => {
+                                    handleDownloadResume()
+                                    setIsMobileMenuOpen(false)
+                                }}
+                                variant="secondary"
+                                className="flex items-center gap-2 w-full justify-center dark:bg-neutral-800 dark:text-white"
+                            >
+                                <Download className="h-4 w-4 dark:text-white" />Resume
+
+                            </NavbarButton>
                             <NavbarButton
                                 onClick={() => setIsMobileMenuOpen(false)}
                                 variant="secondary"
