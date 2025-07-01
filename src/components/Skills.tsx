@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useSpring, useTransform } from "motion/react"
 import React, { useRef, useState } from "react"
-import {  CPPIcon, CSSIcon, ExpressIcon, GithubIcon, GitIcon, GoLangIcon, GraphQLIcon, HTMLIcon, JavaIcon, JavaSciptIcon, MongoDBIcon, NextJsIcon, NodeJsIcon, PostgresIcon, PostmanIcon, PrismaIcon, ReactIcon, ReduxIcon, TailwindIcon, TypeScriptIcon, DrizzleIcon, JWTIcon, MySQLIcon, AceternityIcon, ShadCNIcon } from "./ui/icons"
+import {  CPPIcon, CSSIcon, ExpressIcon, GithubIcon, GitIcon, GoLangIcon, GraphQLIcon, HTMLIcon, JavaIcon, JavaSciptIcon, MongoDBIcon, NextJsIcon, NodeJsIcon, PostgresIcon, PostmanIcon, PrismaIcon, ReactIcon, ReduxIcon, TailwindIcon, TypeScriptIcon, DrizzleIcon, JWTIcon, MySQLIcon, AceternityIcon, ShadCNIcon, TanstackQueryIcon } from "./ui/icons"
 
 interface Skill {
     name: string
@@ -25,6 +25,7 @@ const skills: Skill[] = [
     { name: "React", category: "Frontend", icon: <ReactIcon /> },
     { name: "Next.js", category: "Frontend", icon: <NextJsIcon /> },
     { name: "Redux", category: "Frontend", icon: <ReduxIcon /> },
+    { name: "TanStack Query", category: "Frontend", icon: <TanstackQueryIcon /> },
 
     // Backend
     { name: "Node.js", category: "Backend", icon: <NodeJsIcon /> },
