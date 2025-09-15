@@ -6,34 +6,33 @@ import { cn } from "@/lib/utils"
 import Image from "next/image"
 
 const projects = [
+    // {
+    //     id: 1,
+    //     title: "Devflow Console",
+    //     description: "Dashboard application with GitHub integration displaying repository analytics, pull requests, and test summaries using Golang and GraphQL API.",
+    //     image: "https://ik.imagekit.io/lmpthl5suv/devc.jpg?updatedAt=1748962565750",
+    //     techStack: ["Next.js", "Github GraphQL API", "GoLang", "Gin", "Recharts", "ShadCN"],
+    //     liveUrl: "https://devflow-console.vercel.app/",
+    //     githubUrl: "https://github.com/ayyush08/Devflow-Console",
+    // },
     {
-        id: 1,
-        title: "Devflow Console",
-        description:
-            "A dashboard application integrated with GitHub, developed using Golang and the GitHub GraphQL API, to display repository analytics, pull request data, and test summaries.",
-        image: "https://ik.imagekit.io/lmpthl5suv/devc.jpg?updatedAt=1748962565750",
-        techStack: ["Next.js", "Github GraphQL API", "GoLang", "Gin", "Recharts", "ShadCN"],
-        liveUrl: "https://devflow-console.vercel.app/",
-        githubUrl: "https://github.com/ayyush08/Devflow-Console",
+        id:1,
+        title: "CuraTube - Video Streaming Platform",
+        description: "Full-stack video streaming platform with user authentication, video uploads, comments, likes, and social features.",
+        image: "https://ik.imagekit.io/8q741u4ve/cct.jpg?updatedAt=1757924020125",
+        techStack: ["MERN Stack", "Cloudinary", "TanStack Query", "TanStack Router"],
+        liveUrl: "https://curatube.vercel.app",
+        githubUrl: "https://github.com/ayyush08/CuraTube",
     },
     {
         id: 2,
         title: "Inkognito - Anonymous Messages",
-        description: "A full-stack web application in NextJS, enabling users to send anonymous messages via public profile URLs, with a sleek UI and robust backend.",
+        description: "Full-stack application enabling anonymous messaging through public profile URLs with modern UI and secure backend.",
         image: "https://ik.imagekit.io/lmpthl5suv/ink.jpg?updatedAt=1748963140186",
-        techStack: ["Next.js", "Gemini", "Auth.js", "MongoDB", "Zod", "Resend"],
+        techStack: ["Next.js", "Gemini", "Auth.js", "MongoDB", "Zod"],
         liveUrl: "https://inkognito-msg.vercel.app/",
         githubUrl: "https://github.com/ayyush08/Inkognito",
     },
-    // {
-    //     id: 3,
-    //     title: "CuraTube",
-    //     description: "A collaborative tool for managing projects, including kanban boards, time logging, and team statistics.",
-    //     image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?q=80&w=3500&auto=format&fit=crop",
-    //     techStack: ["Vue.js", "Express", "Redis", "Docker"],
-    //     liveUrl: "https://example.com",
-    //     githubUrl: "https://github.com/example",
-    // },
 ]
 
 export function Projects() {

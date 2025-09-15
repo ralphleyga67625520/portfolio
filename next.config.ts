@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'ik.imagekit.io',
-        pathname: '/lmpthl5suv/**',
+        pathname: '/**',
         port: '',
       },
     ],
