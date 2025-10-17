@@ -29,7 +29,7 @@ export function Navbar() {
 
     const handleDownloadResume = () => {
         
-        const resumeUrl = "https://drive.google.com/uc?export=download&id=1AcM0v5qVLfWlIMyfnPm9nSk6DWoHziLH"
+        const resumeUrl = "https://drive.google.com/uc?export=download&id=1WkP3YPsQ7706lFEmjcTLJJ12qZmc5sCa"
         const link = document.createElement("a")
         link.href = resumeUrl
         link.download = "AyushKumarGupta_Resume.pdf"
@@ -67,7 +67,7 @@ export function Navbar() {
                 {/* Mobile Navigation */}
                 <MobileNav>
                     <MobileNavHeader>
-                        <span className="font-bold text-md font-sans">&lt;Ak/&gt;</span>
+                        <span className="font-bold text-md font-sans">&lt;/&gt;</span>
                         <MobileNavToggle
                             isOpen={isMobileMenuOpen}
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

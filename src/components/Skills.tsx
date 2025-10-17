@@ -16,7 +16,7 @@ const skills: Skill[] = [
     { name: "TypeScript", category: "Programming Languages", icon: <TypeScriptIcon /> },
     {name: "C++",category:"Programming Languages", icon: <CPPIcon/>},
     { name: "Java", category: "Programming Languages", icon: <JavaIcon /> },
-    { name: "Go", category: "Programming Languages", icon: <GoLangIcon /> },
+    // { name: "Go", category: "Programming Languages", icon: <GoLangIcon /> },
     
     // Frontend
     { name: "HTML", category: "Frontend", icon: <HTMLIcon /> },
@@ -31,16 +31,16 @@ const skills: Skill[] = [
     { name: "Node.js", category: "Backend", icon: <NodeJsIcon /> },
     { name: "Express.js", category: "Backend", icon: <ExpressIcon /> },
     { name: "Next.js", category: "Backend", icon: <NextJsIcon /> },
-    { name: "GraphQL", category: "Backend", icon: <GraphQLIcon /> },
+    // { name: "GraphQL", category: "Backend", icon: <GraphQLIcon /> },
     { name: "JWT", category: "Backend", icon: <JWTIcon /> },
 
     // Databases
     { name: "PostgreSQL", category: "Databases", icon: <PostgresIcon /> },
-    { name: "MySQL", category: "Databases", icon: <MySQLIcon /> },
+    // { name: "MySQL", category: "Databases", icon: <MySQLIcon /> },
 
     { name: "MongoDB", category: "Databases", icon: <MongoDBIcon /> },
     { name: "Prisma", category: "Databases", icon: <PrismaIcon /> },
-    { name: "Drizzle", category: "Databases", icon: <DrizzleIcon /> },
+    // { name: "Drizzle", category: "Databases", icon: <DrizzleIcon /> },
 
     //Tools
     { name: "Git", category: "Tools & Platforms", icon: <GitIcon /> },
@@ -53,7 +53,7 @@ const skills: Skill[] = [
 const categories = ["All", "Programming Languages", "Frontend", "Backend", "Databases", "Tools & Platforms"]
 
 export default function Skills() {
-    const [selectedCategory, setSelectedCategory] = useState("All")
+    const [selectedCategory, setSelectedCategory] = useState(categories[0]);
 
     let filteredSkills: Skill[];
 
