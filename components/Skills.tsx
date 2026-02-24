@@ -43,7 +43,7 @@ const skillCategories: SkillCategory[] = [
   {
     title: "Programming Languages",
     categoryIcon: Code2,
-    color: "#F472B6",
+    color: "#F472B5",
     gradientFrom: "#F472B6",
     gradientTo: "#FBBF24",
     gradientColor: "#F472B6",
@@ -143,11 +143,12 @@ function SkillCategoryCard({
       <BlurFade delay={0.1 + index * 0.12} inView className="h-full">
         <MagicCard
           className="h-full rounded-2xl"
-          gradientSize={300}
+          gradientSize={250}
           gradientColor={category.gradientColor}
-          gradientOpacity={0.15}
+          gradientOpacity={0.05}
           gradientFrom={category.gradientFrom}
           gradientTo={category.gradientTo}
+          
         >
           <div className="flex h-full min-h-0 flex-col p-6">
             {/* Header */}
@@ -201,7 +202,7 @@ export default function Skills() {
           <BlurFade delay={0.04} inView>
             <h2 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-5xl">
               <span className="bg-linear-to-r from-white to-neutral-500 bg-clip-text text-transparent">
-                Technical Skills
+                Skills I have
               </span>
             </h2>
           </BlurFade>

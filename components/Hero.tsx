@@ -88,7 +88,7 @@ export default function Hero() {
               <div className="absolute -inset-px -z-10 rounded-3xl bg-linear-to-br from-white/10 via-transparent to-white/5 blur-sm" />
 
               <span className="select-none font-mono text-xs tracking-wider text-neutral-500">
-                your visual here
+                visual here
               </span>
             </div>
           </motion.div>
