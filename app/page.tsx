@@ -2,6 +2,7 @@ import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Skills from '@/components/Skills';
 import CompetitiveProgramming from '@/components/CP';
+import Projects from '@/components/Projects';
 import { Button } from '@/components/ui/button';
 
 export default async function Home() {
@@ -14,8 +15,9 @@ export default async function Home() {
       <About />
       <Skills />
       <CompetitiveProgramming />
+      <Projects />
 
-      {/* Add more sections here — e.g. Projects, Contact */}
+      {/* Add more sections here — e.g. Contact */}
     </main>
   );
 }
