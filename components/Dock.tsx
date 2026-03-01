@@ -3,7 +3,6 @@
 import React from "react";
 import Link from "next/link";
 import {
-  HomeIcon,
   UserIcon,
   WrenchIcon,
   SwordsIcon,
@@ -23,7 +22,8 @@ import {
 } from "@/components/ui/tooltip";
 import { Dock, DockIcon } from "@/components/ui/dock";
 import { Icons } from "./icons";
-import { socials } from "@/lib/socials";
+import { socials as staticSocials } from "@/lib/socials";
+import { socialIconMap } from "@/lib/iconMap";
 
 
 const DATA = {
@@ -35,33 +35,20 @@ const DATA = {
     { href: "#projects", icon: FolderOpenIcon, label: "Projects" },
     { href: "#certifications", icon: AwardIcon, label: "Certifications" },
   ],
-  contact: {
-    social: {
-      GitHub: {
-        name: "GitHub",
-        url: socials.GitHub,
-        icon: Icons.github
-      },
-      LinkedIn: {
-        name: "LinkedIn",
-        url: socials.LinkedIn,
-        icon: Icons.linkedin
-      },
-      X: {
-        name: "X",
-        url: socials.X,
-        icon: Icons.x
-      },
-      LeetCode: {
-        name: "LeetCode",
-        url: socials.LeetCode,
-        icon: Icons.leetcode
-      }
-    }
-  },
 };
 
-export function DockDemo() {
+function buildSocialEntries(socials: Record<string, string>) {
+  return Object.entries(socials)
+    .filter(([platform]) => socialIconMap[platform]) // only show platforms with icons
+    .map(([platform, url]) => ({
+      name: platform,
+      url,
+      icon: socialIconMap[platform],
+    }));
+}
+
+export function DockDemo({ socials }: { socials?: Record<string, string> }) {
+  const socialList = buildSocialEntries(socials ?? staticSocials);
   const scrollTo = (href: string) => {
     const id = href.replace("#", "");
     const el = document.getElementById(id);
@@ -94,8 +81,8 @@ export function DockDemo() {
             </DockIcon>
           ))}
           <Separator orientation="vertical" className="h-full" />
-          {Object.entries(DATA.contact.social).map(([name, social]) => (
-            <DockIcon key={name}>
+          {socialList.map((social) => (
+            <DockIcon key={social.name}>
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Link
@@ -111,7 +98,7 @@ export function DockDemo() {
                   </Link>
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>{name}</p>
+                  <p>{social.name}</p>
                 </TooltipContent>
               </Tooltip>
             </DockIcon>

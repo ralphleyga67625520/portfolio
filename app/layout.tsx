@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { DockDemo } from "@/components/Dock";
-import { Particles } from "@/components/ui/particles";
+import DockSection from "@/components/sections/DockSection";
+import { PortfolioShell } from "@/components/PortfolioShell";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,18 +30,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased dark`}
       >
-        {/* Universal particles background */}
-        <Particles
-          className="fixed inset-0 -z-10"
-          variant="snow"
-        />
+        {/* Particles + Dock — hidden on /admin routes */}
+        <PortfolioShell>
+          <div className="fixed bottom-6 left-1/2 z-50 -translate-x-1/2">
+            <DockSection />
+          </div>
+        </PortfolioShell>
 
         {children}
-
-        {/* Fixed dock — always visible at the bottom */}
-        <div className="fixed bottom-6 left-1/2 z-50 -translate-x-1/2">
-          <DockDemo />
-        </div>
       </body>
     </html>
   );

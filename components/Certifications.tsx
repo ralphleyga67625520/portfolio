@@ -151,8 +151,9 @@ function CertificationCard({
 /*  Main Section                                                       */
 /* ------------------------------------------------------------------ */
 
-export default function Certifications() {
-  if (certifications.length === 0) return null;
+export default function Certifications({ data }: { data?: Certification[] }) {
+  const certList = data ?? certifications;
+  if (certList.length === 0) return null;
 
   return (
     <section
@@ -180,7 +181,7 @@ export default function Certifications() {
 
         {/* Certification list — stacked wide cards */}
         <div className="flex flex-col gap-6">
-          {certifications.map((cert, idx) => (
+          {certList.map((cert, idx) => (
             <CertificationCard key={cert.name} cert={cert} index={idx} />
           ))}
         </div>

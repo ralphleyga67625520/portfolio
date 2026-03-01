@@ -1,12 +1,23 @@
 "use client";
 
-import { Suspense, lazy } from "react";
 import { motion } from "motion/react";
 import { LineShadowText } from "./ui/line-shadow-text";
 import { Particles } from "./ui/particles";
 import Spline from "@splinetool/react-spline";
 
-export default function Hero() {
+interface HeroData {
+  greeting: string;
+  name: string;
+  tagline: string;
+  splineUrl: string;
+}
+
+export default function Hero({ data }: { data?: HeroData }) {
+  const greeting = data?.greeting || "Hey, I'm";
+  const name = data?.name || "Ayush";
+  const tagline = data?.tagline || "Full-stack developer who turns ideas into fast, polished products\u00A0\u2014 one clean commit at a time.";
+  const splineUrl = data?.splineUrl || "https://prod.spline.design/AeryvEqWxr2qjINc/scene.splinecode";
+
   return (
     <section
       id="hero"
@@ -39,7 +50,7 @@ export default function Hero() {
                 className="text-5xl leading-none font-bold  italic sm:text-6xl md:text-7xl lg:text-8xl"
                 shadowColor="white"
               >
-                Ayush
+                {name}
               </LineShadowText>
             </motion.div>
 
@@ -50,8 +61,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.35 }}
               className="text-lg leading-relaxed text-muted-foreground sm:text-xl"
             >
-              Full-stack developer who turns ideas into fast, polished
-              products&nbsp;&mdash; one clean commit at a time.
+              {tagline}
             </motion.p>
 
             {/* CTA row */}
@@ -85,7 +95,7 @@ export default function Hero() {
           >
             <div className="h-full w-full scale-125 pointer-events-none">
               <Spline
-                scene="https://prod.spline.design/AeryvEqWxr2qjINc/scene.splinecode"
+                scene={splineUrl}
               />
             </div>
           </motion.div>

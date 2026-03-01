@@ -159,7 +159,8 @@ function ProjectCard({
 /*  Main Section                                                       */
 /* ------------------------------------------------------------------ */
 
-export default function Projects() {
+export default function Projects({ data }: { data?: Project[] }) {
+  const projectList = data ?? projects;
   return (
     <section id="projects" className="relative w-full py-16 sm:py-24 lg:py-32">
       <div className="mx-auto w-full max-w-6xl px-8 sm:px-10 lg:px-16">
@@ -183,7 +184,7 @@ export default function Projects() {
 
         {/* Project grid */}
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3">
-          {projects.map((project, idx) => (
+          {projectList.map((project, idx) => (
             <ProjectCard key={project.title} project={project} index={idx} />
           ))}
           {/* Placeholder card for 'and many more coming soon' */}
