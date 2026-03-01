@@ -188,3 +188,8 @@ a {
     @apply bg-background text-foreground;
   }
 }
+
+/* Hide Spline "Built with Spline" watermark */
+[data-name="Spline Watermark"] { display: none !important; }
+#spline-watermark { display: none !important; }
+canvas + a[href*="spline"], canvas ~ a[href*="spline"] { display: none !important; }

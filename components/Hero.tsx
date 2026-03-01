@@ -1,15 +1,20 @@
 "use client";
 
+import { Suspense, lazy } from "react";
 import { motion } from "motion/react";
 import { LineShadowText } from "./ui/line-shadow-text";
 import { Particles } from "./ui/particles";
+import Spline from "@splinetool/react-spline";
 
 export default function Hero() {
   return (
-    <section id="#" className="relative flex min-h-screen w-full items-center overflow-hidden">
+    <section
+      id="hero"
+      className="relative flex min-h-screen w-full items-center overflow-hidden"
+    >
       {/* Subtle grid overlay */}
       {/* <div className="grid-overlay pointer-events-none absolute inset-0" /> */}
-     
+
       <div className="relative z-10 mx-auto w-full max-w-6xl px-6 py-24 sm:px-10 lg:px-16">
         <div className="flex flex-col items-center gap-16 lg:flex-row lg:items-center lg:justify-between">
           {/* Left — Text content */}
@@ -71,25 +76,17 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Right — Visual placeholder (photo / Spline 3D) */}
+          {/* Right — Spline */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.4 }}
-            className="flex shrink-0 items-center justify-center"
+            className="relative flex  items-center justify-center h-64 w-64 sm:h-80 sm:w-80 lg:h-96 lg:w-96"
           >
-            {/*
-              Replace the placeholder below with either:
-              1. <Image src="/your-photo.jpg" … />
-              2. <Spline scene="…" />   (from @splinetool/react-spline)
-            */}
-            <div className="relative flex h-64 w-64 items-center justify-center rounded-3xl border border-white/10 bg-white/3 backdrop-blur-sm sm:h-80 sm:w-80 lg:h-96 lg:w-96">
-              {/* Decorative glow ring */}
-              <div className="absolute -inset-px -z-10 rounded-3xl bg-linear-to-br from-white/10 via-transparent to-white/5 blur-sm" />
-
-              <span className="select-none font-mono text-xs tracking-wider text-neutral-500">
-                visual here
-              </span>
+            <div className="h-full w-full scale-125 pointer-events-none">
+              <Spline
+                scene="https://prod.spline.design/AeryvEqWxr2qjINc/scene.splinecode"
+              />
             </div>
           </motion.div>
         </div>

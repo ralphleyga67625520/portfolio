@@ -10,14 +10,13 @@ export interface Project {
   accentColor: string; // accent colour used for the card
 }
 
-const dummyImageUrl =
-  "https://ik.imagekit.io/lmpthl5suv/ScreenShot-2025-3-9_0-49-21_bqgprKot3.png?updatedAt=1745244201053";
+
 export const projects: Project[] = [
   {
     title: "CuraTube ",
-    subtitle: "a fully-featured video streaming platform",
+    subtitle: "A fully-featured video streaming platform",
     description:
-      "a full-stack video streaming platform that supports a handful of cool features similar to any other video streaming application out there.",
+      "A full-stack video streaming platform that supports a handful of cool features similar to any other video streaming application out there.",
     image: "https://ik.imagekit.io/lmpthl5suv/curatube-dummy.png",
     githubUrl: "https://github.com/ayyush08/CuraTube",
     liveUrl: "https://curatube.vercel.app",

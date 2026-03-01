@@ -186,6 +186,10 @@ export default function Projects() {
           {projects.map((project, idx) => (
             <ProjectCard key={project.title} project={project} index={idx} />
           ))}
+          {/* Placeholder card for 'and many more coming soon' */}
+          <div className="flex items-center justify-center h-full min-h-[320px] max-w-[400px] w-full border border-dashed border-white/20 rounded-lg bg-white/5 text-center p-8 mx-auto">
+            <span className="text-base sm:text-lg text-neutral-400 font-semibold">and many more coming soon</span>
+          </div>
         </div>
       </div>
     </section>

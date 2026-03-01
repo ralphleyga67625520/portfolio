@@ -2,7 +2,15 @@
 
 import React from "react";
 import Link from "next/link";
-import { CalendarIcon, HomeIcon, MailIcon, PencilIcon } from "lucide-react";
+import {
+  HomeIcon,
+  UserIcon,
+  WrenchIcon,
+  SwordsIcon,
+  FolderOpenIcon,
+  AwardIcon,
+  ArrowUp,
+} from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
@@ -18,12 +26,14 @@ import { Icons } from "./icons";
 import { socials } from "@/lib/socials";
 
 
-
-
 const DATA = {
   navbar: [
-    { href: "#", icon: HomeIcon, label: "Home" },
-    { href: "#", icon: PencilIcon, label: "Blog" }
+    { href: "#hero", icon: ArrowUp, label: "To the top" },
+    { href: "#about", icon: UserIcon, label: "About" },
+    { href: "#skills", icon: WrenchIcon, label: "Skills" },
+    { href: "#competitive", icon: SwordsIcon, label: "Competitive Programming" },
+    { href: "#projects", icon: FolderOpenIcon, label: "Projects" },
+    { href: "#certifications", icon: AwardIcon, label: "Certifications" },
   ],
   contact: {
     social: {
@@ -52,6 +62,12 @@ const DATA = {
 };
 
 export function DockDemo() {
+  const scrollTo = (href: string) => {
+    const id = href.replace("#", "");
+    const el = document.getElementById(id);
+    el?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div className="flex flex-col items-center justify-center">
       <TooltipProvider>
@@ -60,8 +76,8 @@ export function DockDemo() {
             <DockIcon key={item.label}>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Link
-                    href={item.href}
+                  <button
+                    onClick={() => scrollTo(item.href)}
                     aria-label={item.label}
                     className={cn(
                       buttonVariants({ variant: "ghost", size: "icon" }),
@@ -69,7 +85,7 @@ export function DockDemo() {
                     )}
                   >
                     <item.icon className="size-4" />
-                  </Link>
+                  </button>
                 </TooltipTrigger>
                 <TooltipContent>
                   <p>{item.label}</p>
