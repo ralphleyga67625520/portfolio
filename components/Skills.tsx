@@ -1,6 +1,6 @@
 "use client";
 
-import { Icons, type IconProps } from "@/components/icons";
+import { type IconProps } from "@/components/icons";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { BentoGrid } from "@/components/ui/bento-grid";
 import { MagicCard } from "@/components/ui/magic-card";
@@ -12,6 +12,8 @@ import {
   Wrench,
   type LucideIcon,
 } from "lucide-react";
+import { skillIconMap, categoryIconMap } from "@/lib/iconMap";
+import { Icons } from "@/components/icons";
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -35,11 +37,43 @@ interface SkillCategory {
   skills: Skill[];
 }
 
+/** Shape returned by getSkillCategories() in lib/data.ts */
+export interface SkillCategoryData {
+  title: string;
+  categoryIconKey: string;
+  color: string;
+  gradientFrom: string;
+  gradientTo: string;
+  gradientColor: string;
+  span: string;
+  skills: { name: string; iconKey: string }[];
+}
+
 /* ------------------------------------------------------------------ */
-/*  Data — 5 categories                                                */
+/*  Helpers — convert DB data to component format                      */
 /* ------------------------------------------------------------------ */
 
-const skillCategories: SkillCategory[] = [
+function resolveCategories(data: SkillCategoryData[]): SkillCategory[] {
+  return data.map((d) => ({
+    title: d.title,
+    categoryIcon: categoryIconMap[d.categoryIconKey] ?? Wrench,
+    color: d.color,
+    gradientFrom: d.gradientFrom,
+    gradientTo: d.gradientTo,
+    gradientColor: d.gradientColor,
+    span: d.span,
+    skills: d.skills.map((s) => ({
+      name: s.name,
+      icon: skillIconMap[s.iconKey] ?? Icons.github,
+    })),
+  }));
+}
+
+/* ------------------------------------------------------------------ */
+/*  Static fallback data                                               */
+/* ------------------------------------------------------------------ */
+
+const fallbackCategories: SkillCategory[] = [
   {
     title: "Programming Languages",
     categoryIcon: Code2,
@@ -52,7 +86,7 @@ const skillCategories: SkillCategory[] = [
       { name: "TypeScript", icon: Icons.typescript },
       { name: "Python", icon: Icons.python },
       { name: "JavaScript", icon: Icons.javascript },
-      {name: "C++", icon: Icons.cpp },
+      { name: "C++", icon: Icons.cpp },
     ],
   },
   {
@@ -81,7 +115,6 @@ const skillCategories: SkillCategory[] = [
     skills: [
       { name: "Node.js", icon: Icons.nodejs },
       { name: "Express", icon: Icons.express },
-    //   { name: "GraphQL", icon: Icons.graphql },
       { name: "REST API", icon: Icons.restapi },
     ],
   },
@@ -193,7 +226,9 @@ function SkillCategoryCard({
 /*  Main component                                                     */
 /* ------------------------------------------------------------------ */
 
-export default function Skills() {
+export default function Skills({ data }: { data?: SkillCategoryData[] }) {
+  const skillCategories = data ? resolveCategories(data) : fallbackCategories;
+
   return (
     <section id="skills" className="relative w-full py-24 sm:py-32">
       <div className="mx-auto w-full max-w-6xl px-6 sm:px-10 lg:px-16">

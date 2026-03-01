@@ -29,7 +29,18 @@ function IconNode({ icon: Icon, color, label }: { icon: React.ComponentType<Reac
   );
 }
 
-export default function About() {
+interface AboutData {
+  heading: string;
+  paragraphs: string[];
+}
+
+export default function About({ data }: { data?: AboutData }) {
+  const heading = data?.heading || "Who I am & What I offer";
+  const paragraphs = data?.paragraphs || [
+    "I'm Ayush Kumar Gupta \u2014 a full-stack developer with a sharp eye for clean architecture and a deep love for solving hard problems. From crafting intuitive UIs to designing scalable backends, I build products that are fast, reliable, and a joy to use.",
+    "Competitive programmer at heart, builder by habit \u2014 I thrive at the intersection of performance, design, and developer experience.",
+  ];
+
   return (
     <section id="about" className="relative w-full py-24 sm:py-32">
       <div className="mx-auto w-full max-w-6xl px-6 sm:px-10 lg:px-16">
@@ -88,36 +99,26 @@ export default function About() {
             >
               
               <span className="bg-linear-to-r from-white to-neutral-500 bg-clip-text text-transparent">
-                Who I am & <br/>
-                 What I offer
+                {heading.includes('&') ? (
+                  <>{heading.split('&').map((part, i, arr) => (
+                    <span key={i}>{part.trim()}{i < arr.length - 1 && <><br/> &amp; </>}</span>
+                  ))}</>
+                ) : heading}
               </span>
             </motion.h2>
 
-            <motion.p
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-base leading-relaxed text-muted-foreground sm:text-lg"
-            >
-              I&apos;m Ayush Kumar Gupta — a full-stack developer with a
-              sharp eye for clean architecture and a deep love for solving
-              hard problems. From crafting intuitive UIs to designing
-              scalable backends, I build products that are fast, reliable,
-              and a joy to use.
-            </motion.p>
-
-            <motion.p
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-base leading-relaxed text-muted-foreground sm:text-lg"
-            >
-              Competitive programmer at heart, builder by habit — I thrive
-              at the intersection of performance, design, and developer
-              experience.
-            </motion.p>
+            {paragraphs.map((p, i) => (
+              <motion.p
+                key={i}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: 0.2 + i * 0.1 }}
+                className="text-base leading-relaxed text-muted-foreground sm:text-lg"
+              >
+                {p}
+              </motion.p>
+            ))}
           </div>
         </div>
       </div>
