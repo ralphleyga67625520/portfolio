@@ -12,6 +12,7 @@ import {
   User,
   Home,
   LogOut,
+  Briefcase,
 } from "lucide-react";
 
 const navItems = [
@@ -20,6 +21,7 @@ const navItems = [
   { href: "/admin/dashboard/about", label: "About", icon: User },
   { href: "/admin/dashboard/projects", label: "Projects", icon: FolderOpen },
   { href: "/admin/dashboard/certifications", label: "Certifications", icon: Award },
+  { href: "/admin/dashboard/experience", label: "Experience", icon: Briefcase },
   { href: "/admin/dashboard/skills", label: "Skills", icon: Wrench },
   { href: "/admin/dashboard/socials", label: "Socials", icon: Share2 },
 ];
