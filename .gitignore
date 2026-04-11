@@ -2,6 +2,7 @@
 
 
 /scripts/seed.ts
+.agent/
 
 # dependencies
 /node_modules

@@ -34,6 +34,13 @@ export const skillIconMap: Record<string, IconRenderer> = {
   prisma: Icons.prisma,
   github: Icons.github,
   firebase: Icons.firebase,
+  html: Icons.html,
+  css: Icons.css,
+  java: Icons.java,
+  tanstack: Icons.tanstack,
+  redux: Icons.redux,
+  docker: Icons.docker,
+  
 };
 
 /* ------------------------------------------------------------------ */
@@ -59,7 +66,7 @@ export const socialIconMap: Record<string, IconRenderer> = {
   LinkedIn: Icons.linkedin,
   X: Icons.x,
   LeetCode: Icons.leetcode,
-  Codeforces: Icons.leetcode, // fallback — add a Codeforces icon if needed
   YouTube: Icons.youtube,
   WhatsApp: Icons.whatsapp,
+  Leetcode: Icons.leetcode
 };

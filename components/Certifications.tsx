@@ -6,12 +6,10 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { BlurFade } from "@/components/ui/blur-fade";
-import { BorderBeam } from "@/components/ui/border-beam";
-import { FlickeringGrid } from "@/components/ui/flickering-grid";
 import { certifications, type Certification } from "@/lib/certifications";
 
 /* ------------------------------------------------------------------ */
-/*  Certification Card — horizontal wide card with tilt + border beam  */
+/*  Certification Card — horizontal wide card with tilt               */
 /* ------------------------------------------------------------------ */
 
 function CertificationCard({
@@ -35,32 +33,27 @@ function CertificationCard({
       <motion.div
         whileHover={{ y: -3 }}
         transition={{ type: "spring", stiffness: 300, damping: 24 }}
+        style={{ willChange: "transform" }}
         className="group relative w-full"
       >
         {/* ---- Corner diamond decorators ---- */}
         <Waypoints className="absolute -left-1.5 -top-1.5 z-10 h-3 w-3 sm:-left-2 sm:-top-2 sm:h-4 sm:w-4 fill-current"/>
-        {/* <X className="absolute -right-1.5 -top-1.5 z-10 h-3 w-3 sm:-right-2 sm:-top-2 sm:h-4 sm:w-4 fill-current"  /> */}
-        {/* <X className="absolute -bottom-1.5 -left-1.5 z-10 h-3 w-3 sm:-bottom-2 sm:-left-2 sm:h-4 sm:w-4 fill-current"  /> */}
         <Waypoints className="absolute -bottom-1.5 -right-1.5 z-10 h-3 w-3 sm:-bottom-2 sm:-right-2 sm:h-4 sm:w-4 fill-current" />
 
 
         {/* ---- Card body — sharp corners like project cards ---- */}
         <div className="relative flex flex-col overflow-hidden rounded-tr-md rounded-bl-md border border-white/10 bg-transparent sm:flex-row ">
-          {/* ---- Flickering grid background ---- */}
-          <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-            <FlickeringGrid
-              squareSize={3}
-              gridGap={8}
-              flickerChance={0.15}
-              color={accent.from}
-              maxOpacity={0.06}
-              className="h-full w-full"
-            />
-          </div>
+          {/* ---- Lightweight static gradient background (replaces FlickeringGrid) ---- */}
+          <div
+            className="pointer-events-none absolute inset-0 z-0"
+            style={{
+              background: `radial-gradient(ellipse at 20% 30%, ${accent.from}0a 0%, transparent 60%), radial-gradient(ellipse at 80% 70%, ${accent.to}08 0%, transparent 60%)`,
+            }}
+          />
 
           {/* Left — Certificate image */}
           <div className="relative z-1 w-full shrink-0 overflow-hidden sm:w-56 md:w-64 lg:w-72">
-            <div className="relative aspect-4/3 w-full sm:h-full sm:aspect-auto ">
+            <div className="relative aspect-3/2 w-full sm:h-full sm:aspect-auto ">
               <Image
                 src={cert.image}
                 alt={cert.name}
@@ -80,7 +73,7 @@ function CertificationCard({
           />
 
           {/* Right — Name & link */}
-          <div className="relative z-1 flex flex-1 flex-col justify-center gap-3 p-5 sm:gap-4 sm:p-6 md:p-8">
+          <div className="relative z-1 flex flex-1 flex-col justify-center gap-2.5 p-4 sm:gap-4 sm:p-6 md:p-8">
             {/* Badge + name */}
             <div className="flex items-start gap-3">
               <div

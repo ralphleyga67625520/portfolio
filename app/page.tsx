@@ -1,11 +1,12 @@
 import { Suspense } from "react";
-import { Button } from "@/components/ui/button";
 
 import HeroSection from "@/components/sections/HeroSection";
 import AboutSection from "@/components/sections/AboutSection";
 import SkillsSection from "@/components/sections/SkillsSection";
 import ProjectsSection from "@/components/sections/ProjectsSection";
 import CertificationsSection from "@/components/sections/CertificationsSection";
+import ExperienceSection from "@/components/sections/ExperienceSection";
+import ContactSection from "@/components/sections/ContactSection";
 import CompetitiveProgramming from "@/components/CP";
 
 import {
@@ -21,14 +22,6 @@ export const dynamic = "force-dynamic";
 export default function Home() {
   return (
     <main className="w-full pb-24">
-      <Button
-        variant="secondary"
-        className="mb-6 text-cyan-500 mx-auto w-full sticky top-2 z-50 flex text-[10px] sm:text-xs md:text-sm px-2 py-1 sm:px-4 sm:py-2 h-auto whitespace-normal text-center leading-snug"
-      >
-        This portfolio is a work in progress. Some sections may be incomplete or
-        missing. Check back soon for updates!
-      </Button>
-
       <Suspense fallback={<HeroSkeleton />}>
         <HeroSection />
       </Suspense>
@@ -50,6 +43,11 @@ export default function Home() {
       <Suspense fallback={<CertificationsSkeleton />}>
         <CertificationsSection />
       </Suspense>
+
+      <ExperienceSection />
+
+      <ContactSection />
     </main>
   );
 }
+

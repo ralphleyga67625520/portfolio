@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -28,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased dark`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased dark`} suppressHydrationWarning
       >
         {/* Particles + Dock — hidden on /admin routes */}
         <PortfolioShell>
@@ -42,3 +43,4 @@ export default function RootLayout({
     </html>
   );
 }
+

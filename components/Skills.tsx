@@ -2,14 +2,16 @@
 
 import { type IconProps } from "@/components/icons";
 import { BlurFade } from "@/components/ui/blur-fade";
-import { BentoGrid } from "@/components/ui/bento-grid";
-import { MagicCard } from "@/components/ui/magic-card";
 import {
   Code2,
   Monitor,
   Server,
   Database,
   Wrench,
+  BookOpen,
+  Layers,
+  Bot,
+  Smartphone,
   type LucideIcon,
 } from "lucide-react";
 import { skillIconMap, categoryIconMap } from "@/lib/iconMap";
@@ -49,6 +51,12 @@ export interface SkillCategoryData {
   skills: { name: string; iconKey: string }[];
 }
 
+interface LearningItem {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+}
+
 /* ------------------------------------------------------------------ */
 /*  Helpers — convert DB data to component format                      */
 /* ------------------------------------------------------------------ */
@@ -81,67 +89,71 @@ const fallbackCategories: SkillCategory[] = [
     gradientFrom: "#F472B6",
     gradientTo: "#FBBF24",
     gradientColor: "#F472B6",
-    span: "col-span-2 lg:col-span-2",
+    span: "col-span-1",
     skills: [
-      { name: "TypeScript", icon: Icons.typescript },
-      { name: "Python", icon: Icons.python },
+      { name: "HTML", icon: Icons.html },
+      { name: "CSS", icon: Icons.css },
       { name: "JavaScript", icon: Icons.javascript },
+      { name: "TypeScript", icon: Icons.typescript },
       { name: "C++", icon: Icons.cpp },
+      { name: "Java", icon: Icons.java },
+      { name: "Python", icon: Icons.python },
     ],
   },
   {
-    title: "Frontend",
+    title: "Libraries & Frameworks",
     categoryIcon: Monitor,
     color: "#60A5FA",
     gradientFrom: "#60A5FA",
     gradientTo: "#A78BFA",
     gradientColor: "#60A5FA",
-    span: "col-span-3 lg:col-span-1",
+    span: "col-span-1",
     skills: [
-      { name: "React", icon: Icons.react },
+      { name: "React.js", icon: Icons.react },
       { name: "Next.js", icon: Icons.nextjs },
-      { name: "Tailwind CSS", icon: Icons.tailwindcss },
-      { name: "ShadCN", icon: Icons.shadcn },
+      { name: "Express.js", icon: Icons.express },
+      { name: "Node.js", icon: Icons.nodejs },
+      { name: "TailwindCSS", icon: Icons.tailwindcss },
+      { name: "Shadcn UI", icon: Icons.shadcn },
+      { name: "Redux", icon: Icons.redux },
+      { name: "TanStack Query", icon: Icons.tanstack },
     ],
   },
   {
-    title: "Backend",
-    categoryIcon: Server,
+    title: "Databases & Other Tools",
+    categoryIcon: Database,
     color: "#34D399",
     gradientFrom: "#34D399",
     gradientTo: "#FBBF24",
     gradientColor: "#34D399",
-    span: "col-span-3 lg:col-span-1",
+    span: "col-span-1",
     skills: [
-      { name: "Node.js", icon: Icons.nodejs },
-      { name: "Express", icon: Icons.express },
-      { name: "REST API", icon: Icons.restapi },
-    ],
-  },
-  {
-    title: "Database",
-    categoryIcon: Database,
-    color: "#A78BFA",
-    gradientFrom: "#A78BFA",
-    gradientTo: "#FB923C",
-    gradientColor: "#A78BFA",
-    span: "col-span-3 lg:col-span-1",
-    skills: [
-      { name: "PostgreSQL", icon: Icons.postgresql },
       { name: "MongoDB", icon: Icons.mongodb },
-      { name: "Redis", icon: Icons.redis },
+      { name: "PostgreSQL", icon: Icons.postgresql },
       { name: "Prisma", icon: Icons.prisma },
+      { name: "Git", icon: Icons.git },
+      { name: "GitHub", icon: Icons.github },
+      { name: "Postman", icon: Icons.postman },
+      { name: "Docker", icon: Icons.docker },
     ],
   },
+];
+
+const learningItems: LearningItem[] = [
   {
-    title: "Others",
-    categoryIcon: Wrench,
-    color: "#FB923C",
-    gradientFrom: "#FB923C",
-    gradientTo: "#F472B6",
-    gradientColor: "#FB923C",
-    span: "col-span-3 lg:col-span-1",
-    skills: [{ name: "GitHub", icon: Icons.github }],
+    icon: Layers,
+    title: "System Design",
+    description: "Scalability, distributed systems & architecture patterns",
+  },
+  {
+    icon: Smartphone,
+    title: "Mobile Development",
+    description: "Building cross-platform mobile experiences",
+  },
+  {
+    icon: Bot,
+    title: "Agentic AI",
+    description: "Building intelligent agents that can perform complex tasks autonomously",
   },
 ];
 
@@ -149,13 +161,13 @@ const fallbackCategories: SkillCategory[] = [
 /*  Sub-components                                                     */
 /* ------------------------------------------------------------------ */
 
-function SkillItem({ skill }: { skill: Skill }) {
+function SkillPill({ skill }: { skill: Skill }) {
   return (
-    <div className="group/skill flex flex-col items-center gap-2.5 rounded-xl border border-white/6 bg-white/3 px-3 py-3.5 transition-all duration-300 ease-out hover:border-white/15 hover:bg-white/6 hover:scale-[1.04]">
-      <span className="flex h-7 w-7 items-center justify-center text-neutral-400 transition-all duration-300 ease-out group-hover/skill:scale-110 group-hover/skill:text-white">
-        {skill.icon({ className: "h-5 w-5" })}
+    <div className="group/skill inline-flex items-center gap-2 rounded-lg border border-white/8 bg-white/[0.03] px-3 py-2 transition-all duration-200 hover:border-white/15 hover:bg-white/[0.06]">
+      <span className="flex h-5 w-5 shrink-0 items-center justify-center text-neutral-300">
+        {skill.icon({ className: "h-4 w-4" })}
       </span>
-      <span className="text-[11px] font-medium leading-tight text-neutral-500 transition-colors duration-300 group-hover/skill:text-neutral-300">
+      <span className="text-sm font-medium text-neutral-300 whitespace-nowrap">
         {skill.name}
       </span>
     </div>
@@ -169,56 +181,56 @@ function SkillCategoryCard({
   category: SkillCategory;
   index: number;
 }) {
-  const CategoryIcon = category.categoryIcon;
-
   return (
-    <div className={`${category.span} h-full`}>
-      <BlurFade delay={0.1 + index * 0.12} inView className="h-full">
-        <MagicCard
-          className="h-full rounded-2xl"
-          gradientSize={250}
-          gradientColor={category.gradientColor}
-          gradientOpacity={0.05}
-          gradientFrom={category.gradientFrom}
-          gradientTo={category.gradientTo}
-          
-        >
-          <div className="flex h-full min-h-0 flex-col p-6">
-            {/* Header */}
-            <div className="mb-5 flex items-center gap-3">
-              <div
-                className="flex h-10 w-10 items-center justify-center rounded-xl border backdrop-blur-md"
-                style={{
-                  borderColor: `${category.color}30`,
-                  backgroundColor: `${category.color}12`,
-                }}
-              >
-                <CategoryIcon
-                  className="h-5 w-5"
-                  style={{ color: category.color }}
-                />
-              </div>
-              <h3
-                className="text-sm font-semibold uppercase tracking-wider"
-                style={{ color: category.color }}
-              >
-                {category.title}
-              </h3>
-            </div>
+    <BlurFade delay={0.08 + index * 0.1} inView className="h-full">
+      <div className="h-full rounded-xl border border-white/8 bg-white/[0.02] p-4 sm:p-5">
+        {/* Header with accent bar */}
+        <div className="mb-4 flex items-center gap-2.5">
+          <div
+            className="h-5 w-1 rounded-full"
+            style={{ backgroundColor: category.color }}
+          />
+          <h3
+            className="text-xs font-bold uppercase tracking-widest"
+            style={{ color: category.color }}
+          >
+            {category.title}
+          </h3>
+        </div>
 
-            {/* Divider */}
-            <div className="mb-5 h-px w-full bg-white/8" />
+        {/* Skill pills — wrapping flow */}
+        <div className="flex flex-wrap gap-2">
+          {category.skills.map((skill) => (
+            <SkillPill key={skill.name} skill={skill} />
+          ))}
+        </div>
+      </div>
+    </BlurFade>
+  );
+}
 
-            {/* Skills grid */}
-            <div className="grid grid-cols-3 gap-2">
-              {category.skills.map((skill) => (
-                <SkillItem key={skill.name} skill={skill} />
-              ))}
-            </div>
-          </div>
-        </MagicCard>
-      </BlurFade>
-    </div>
+function LearningCard({
+  item,
+  index,
+}: {
+  item: LearningItem;
+  index: number;
+}) {
+  const Icon = item.icon;
+  return (
+    <BlurFade delay={0.3 + index * 0.1} inView>
+      <div className="flex items-start gap-3 sm:gap-4">
+        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-teal-400/20 bg-teal-400/8 text-teal-400">
+          <Icon className="h-5 w-5" />
+        </div>
+        <div className="min-w-0">
+          <h4 className="text-sm font-semibold text-white">{item.title}</h4>
+          <p className="mt-0.5 text-xs leading-relaxed text-neutral-500">
+            {item.description}
+          </p>
+        </div>
+      </div>
+    </BlurFade>
   );
 }
 
@@ -230,10 +242,10 @@ export default function Skills({ data }: { data?: SkillCategoryData[] }) {
   const skillCategories = data ? resolveCategories(data) : fallbackCategories;
 
   return (
-    <section id="skills" className="relative w-full py-24 sm:py-32">
+    <section id="skills" className="relative w-full py-16 sm:py-24 lg:py-32">
       <div className="mx-auto w-full max-w-6xl px-6 sm:px-10 lg:px-16">
         {/* Section heading */}
-        <div className="mb-16 text-center">
+        <div className="mb-12 sm:mb-16 text-center">
           <BlurFade delay={0.04} inView>
             <h2 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-5xl">
               <span className="bg-linear-to-r from-white to-neutral-500 bg-clip-text text-transparent">
@@ -250,8 +262,8 @@ export default function Skills({ data }: { data?: SkillCategoryData[] }) {
           </BlurFade>
         </div>
 
-        {/* Bento grid with MagicCard items */}
-        <BentoGrid className="auto-rows-auto items-stretch grid-cols-1 lg:grid-cols-3">
+        {/* Category cards — 3 columns on desktop, stacked on mobile */}
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {skillCategories.map((category, idx) => (
             <SkillCategoryCard
               key={category.title}
@@ -259,7 +271,28 @@ export default function Skills({ data }: { data?: SkillCategoryData[] }) {
               index={idx}
             />
           ))}
-        </BentoGrid>
+        </div>
+
+        {/* Currently Learning section */}
+        <BlurFade delay={0.25} inView>
+          <div className="mt-6 rounded-xl border border-white/8 bg-white/[0.02] p-4 sm:p-5">
+            {/* Header */}
+            <div className="mb-5 flex items-center gap-2.5">
+              <BookOpen className="h-4 w-4 text-teal-400" />
+              <h3 className="text-xs font-bold uppercase tracking-widest text-teal-400">
+                Currently Learning
+              </h3>
+              <span className="h-2 w-2 rounded-full bg-teal-400 animate-pulse" />
+            </div>
+
+            {/* Learning items grid */}
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+              {learningItems.map((item, idx) => (
+                <LearningCard key={item.title} item={item} index={idx} />
+              ))}
+            </div>
+          </div>
+        </BlurFade>
       </div>
     </section>
   );

@@ -5,7 +5,6 @@ import { ExternalLink, Github, PlusIcon } from "lucide-react";
 import Image from "next/image";
 
 import { BlurFade } from "@/components/ui/blur-fade";
-import { FlickeringGrid } from "@/components/ui/flickering-grid";
 import { Lens } from "@/components/ui/lens";
 import { projects, type Project } from "@/lib/projects";
 import Link from "next/link";
@@ -35,19 +34,16 @@ function ProjectCard({
         <motion.div
           whileHover={{ y: -4 }}
           transition={{ type: "spring", stiffness: 260, damping: 20 }}
+          style={{ willChange: "transform" }}
           className="group relative flex h-full flex-col overflow-hidden rounded-none border border-white/10 bg-transparent"
         >
-        {/* ---- Flickering grid background (accent-colored) ---- */}
-        <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-          <FlickeringGrid
-            squareSize={3}
-            gridGap={8}
-            flickerChance={0.2}
-            color={project.accentColor}
-            maxOpacity={0.12}
-            className="h-full w-full"
-          />
-        </div>
+        {/* ---- Lightweight static gradient background (replaces FlickeringGrid) ---- */}
+        <div
+          className="pointer-events-none absolute inset-0 z-0"
+          style={{
+            background: `radial-gradient(ellipse at 30% 20%, ${project.accentColor}08 0%, transparent 50%), radial-gradient(ellipse at 70% 80%, ${project.accentColor}06 0%, transparent 50%)`,
+          }}
+        />
 
         {/* ---- Content wrapper ---- */}
         <div className="p-1">
@@ -162,7 +158,7 @@ function ProjectCard({
 export default function Projects({ data }: { data?: Project[] }) {
   const projectList = data ?? projects;
   return (
-    <section id="projects" className="relative w-full py-16 sm:py-24 lg:py-32">
+    <section id="projects" className="relative w-full py-12 sm:py-24 lg:py-32">
       <div className="mx-auto w-full max-w-6xl px-8 sm:px-10 lg:px-16">
         {/* Section heading */}
         <div className="mb-16 text-center">
@@ -183,12 +179,12 @@ export default function Projects({ data }: { data?: Project[] }) {
         </div>
 
         {/* Project grid */}
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3">
           {projectList.map((project, idx) => (
             <ProjectCard key={project.title} project={project} index={idx} />
           ))}
           {/* Placeholder card for 'and many more coming soon' */}
-          <div className="flex items-center justify-center h-full min-h-[320px] max-w-[400px] w-full border border-dashed border-white/20 rounded-lg bg-white/5 text-center p-8 mx-auto">
+          <div className="flex items-center justify-center h-full min-h-[200px] sm:min-h-[320px] max-w-[400px] w-full border border-dashed border-white/20 rounded-lg bg-white/5 text-center p-6 sm:p-8 mx-auto">
             <span className="text-base sm:text-lg text-neutral-400 font-semibold">and many more coming soon</span>
           </div>
         </div>

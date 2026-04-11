@@ -51,12 +51,12 @@ export default function About({ data }: { data?: AboutData }) {
             whileInView={{ opacity: 1, scale: 1.10 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7 }}
-            className="relative flex h-105 w-105 shrink-0 items-center justify-center"
+            className="relative flex h-72 w-72 sm:h-105 sm:w-105 shrink-0 items-center justify-center"
           >
             {/* Center avatar */}
             <div className="relative z-10 flex h-32 w-32 items-center justify-center overflow-hidden rounded-full border border-white/15 bg-white/5 shadow-2xl shadow-white/5 backdrop-blur-sm sm:h-32 sm:w-32">
               <Image
-                src="/avatar.jpg"
+                src="https://ik.imagekit.io/lmpthl5suv/1774446176731.png?updatedAt=1774456690946"
                 alt="Ayush Kumar Gupta"
                 width={128}
                 height={128}
@@ -97,13 +97,10 @@ export default function About({ data }: { data?: AboutData }) {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-5xl"
             >
-              
               <span className="bg-linear-to-r from-white to-neutral-500 bg-clip-text text-transparent">
-                {heading.includes('&') ? (
-                  <>{heading.split('&').map((part, i, arr) => (
-                    <span key={i}>{part.trim()}{i < arr.length - 1 && <><br/> &amp; </>}</span>
-                  ))}</>
-                ) : heading}
+                Who I am
+                <br />
+                &amp; What I offer
               </span>
             </motion.h2>
 

@@ -5,6 +5,7 @@ import SocialModel from "@/models/Social";
 import SkillCategoryModel from "@/models/SkillCategory";
 import HeroModel from "@/models/Hero";
 import AboutModel from "@/models/About";
+import ExperienceModel from "@/models/Experience";
 
 // These functions are meant to be called from Server Components.
 // They talk directly to MongoDB (no HTTP round-trip).
@@ -82,3 +83,18 @@ export async function getAbout() {
     paragraphs: doc.paragraphs,
   };
 }
+
+export async function getExperiences() {
+  await dbConnect();
+  const docs = await ExperienceModel.find().sort({ order: 1, createdAt: -1 }).lean();
+  return docs.map((d) => ({
+    role: d.role,
+    company: d.company,
+    companyUrl: d.companyUrl,
+    duration: d.duration,
+    description: d.description,
+    upcoming: d.upcoming,
+    accentColor: d.accentColor,
+  }));
+}
+

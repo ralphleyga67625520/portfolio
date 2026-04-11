@@ -58,6 +58,7 @@ export function StatCard({ stat, index }: { stat: StatCardData; index: number })
         className="group relative h-full overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.02] font-mono font-semibold"
         whileHover={{ y: -3 }}
         transition={{ type: "spring", stiffness: 400, damping: 25 }}
+        style={{ willChange: "transform" }}
       >
         {/* Top accent gradient line */}
         <div

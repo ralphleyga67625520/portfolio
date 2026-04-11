@@ -71,6 +71,7 @@ export function BlurFade({
           duration,
           ease: "easeOut",
         }}
+        style={{ willChange: "transform, opacity, filter" }}
         className={className}
         {...props}
       >
