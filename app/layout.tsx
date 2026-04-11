@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import DockSection from "@/components/sections/DockSection";
 import { PortfolioShell } from "@/components/PortfolioShell";
+import DesktopHint from "@/components/DesktopHint";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,6 +37,7 @@ export default function RootLayout({
           <div className="fixed bottom-6 left-1/2 z-50 -translate-x-1/2">
             <DockSection />
           </div>
+          <DesktopHint />
         </PortfolioShell>
 
         {children}
