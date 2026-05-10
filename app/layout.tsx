@@ -32,17 +32,26 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased dark`} suppressHydrationWarning
       >
-        {/* Particles + Dock — hidden on /admin routes */}
-        <PortfolioShell>
-          <div className="fixed inset-x-0 bottom-6 z-50 flex justify-center pointer-events-none">
-            <div className="pointer-events-auto">
-              <DockSection />
-            </div>
-          </div>
-          <DesktopHint />
-        </PortfolioShell>
+        {/* Particles — hidden on /admin routes */}
+        <PortfolioShell />
 
-        {children}
+        {/* Dock — completely detached from content, direct body child */}
+        <div
+          className="fixed inset-x-0 bottom-6 z-50 flex justify-center pointer-events-none"
+          style={{ willChange: "transform" }}
+        >
+          <div className="pointer-events-auto">
+            <DockSection />
+          </div>
+        </div>
+
+        {/* Desktop hint banner — also detached */}
+        <DesktopHint />
+
+        {/* Page content — isolated overflow container */}
+        <div className="overflow-x-hidden">
+          {children}
+        </div>
       </body>
     </html>
   );

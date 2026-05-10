@@ -28,7 +28,6 @@ import { Dock, DockIcon } from "@/components/ui/dock";
 import { Icons } from "./icons";
 import { socials as staticSocials } from "@/lib/socials";
 import { socialIconMap } from "@/lib/iconMap";
-import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 
 const DATA = {
@@ -159,66 +158,73 @@ function MobileBottomBar({ socials }: { socials: Record<string, string> }) {
 export function DockDemo({ socials }: { socials?: Record<string, string> }) {
   const socialLinks = socials ?? staticSocials;
   const socialList = buildSocialEntries(socialLinks);
-  const isDesktop = useMediaQuery("(min-width: 640px)");
 
   const scrollTo = smoothScrollTo;
 
-  /* On mobile: compact bottom bar */
-  if (!isDesktop) {
-    return <MobileBottomBar socials={socialLinks} />;
-  }
-
-  /* On desktop: full magnifying dock */
+  /*
+   * Render BOTH variants — CSS handles which is visible.
+   * This avoids the mount/unmount cycle from useMediaQuery
+   * that was causing the dock to flash on mobile.
+   */
   return (
-    <div className="flex flex-col items-center justify-center">
-      <TooltipProvider>
-        <Dock direction="middle">
-          {DATA.navbar.map((item) => (
-            <DockIcon key={item.label}>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <button
-                    onClick={() => scrollTo(item.href)}
-                    aria-label={item.label}
-                    className={cn(
-                      buttonVariants({ variant: "ghost", size: "icon" }),
-                      "size-12 rounded-full"
-                    )}
-                  >
-                    <item.icon className="size-4" />
-                  </button>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>{item.label}</p>
-                </TooltipContent>
-              </Tooltip>
-            </DockIcon>
-          ))}
-          <Separator orientation="vertical" className="h-full" />
-          {socialList.map((social) => (
-            <DockIcon key={social.name}>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Link
-                    href={social.url}
-                    target="_blank"
-                    aria-label={social.name}
-                    className={cn(
-                      buttonVariants({ variant: "link", size: "icon" }),
-                      "size-12 rounded-full"
-                    )}
-                  >
-                    <social.icon className="size-5" />
-                  </Link>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>{social.name}</p>
-                </TooltipContent>
-              </Tooltip>
-            </DockIcon>
-          ))}
-        </Dock>
-      </TooltipProvider>
-    </div>
+    <>
+      {/* Mobile: compact bottom bar */}
+      <div className="sm:hidden">
+        <MobileBottomBar socials={socialLinks} />
+      </div>
+
+      {/* Desktop: full magnifying dock */}
+      <div className="hidden sm:flex flex-col items-center justify-center">
+        <TooltipProvider>
+          <Dock direction="middle">
+            {DATA.navbar.map((item) => (
+              <DockIcon key={item.label}>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <button
+                      onClick={() => scrollTo(item.href)}
+                      aria-label={item.label}
+                      className={cn(
+                        buttonVariants({ variant: "ghost", size: "icon" }),
+                        "size-12 rounded-full"
+                      )}
+                    >
+                      <item.icon className="size-4" />
+                    </button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>{item.label}</p>
+                  </TooltipContent>
+                </Tooltip>
+              </DockIcon>
+            ))}
+            <Separator orientation="vertical" className="h-full" />
+            {socialList.map((social) => (
+              <DockIcon key={social.name}>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Link
+                      href={social.url}
+                      target="_blank"
+                      aria-label={social.name}
+                      className={cn(
+                        buttonVariants({ variant: "link", size: "icon" }),
+                        "size-12 rounded-full"
+                      )}
+                    >
+                      <social.icon className="size-5" />
+                    </Link>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>{social.name}</p>
+                  </TooltipContent>
+                </Tooltip>
+              </DockIcon>
+            ))}
+          </Dock>
+        </TooltipProvider>
+      </div>
+    </>
   );
 }
+
