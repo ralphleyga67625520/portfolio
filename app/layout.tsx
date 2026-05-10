@@ -34,8 +34,10 @@ export default function RootLayout({
       >
         {/* Particles + Dock — hidden on /admin routes */}
         <PortfolioShell>
-          <div className="fixed bottom-6 left-1/2 z-50 -translate-x-1/2">
-            <DockSection />
+          <div className="fixed inset-x-0 bottom-6 z-50 flex justify-center pointer-events-none">
+            <div className="pointer-events-auto">
+              <DockSection />
+            </div>
           </div>
           <DesktopHint />
         </PortfolioShell>

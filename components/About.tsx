@@ -51,7 +51,7 @@ export default function About({ data }: { data?: AboutData }) {
             whileInView={{ opacity: 1, scale: 1.10 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7 }}
-            className="relative flex h-72 w-72 sm:h-105 sm:w-105 shrink-0 items-center justify-center"
+            className="relative flex h-64 w-64 sm:h-105 sm:w-105 shrink-0 items-center justify-center overflow-hidden"
           >
             {/* Center avatar */}
             <div className="relative z-10 flex h-32 w-32 items-center justify-center overflow-hidden rounded-full border border-white/15 bg-white/5 shadow-2xl shadow-white/5 backdrop-blur-sm sm:h-32 sm:w-32">

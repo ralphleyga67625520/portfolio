@@ -24,7 +24,7 @@ function ProjectCard({
 }) {
   return (
     <BlurFade delay={0.08 + index * 0.12} inView className="h-full">
-      <div className="relative h-full max-w-[400px] w-full">
+      <div className="relative h-full w-full">
         {/* ---- Corner plus icons (outside card overflow) ---- */}
         <PlusIcon className="absolute -left-2 -top-2 z-10 h-4 w-4 sm:-left-3 sm:-top-3 sm:h-6 sm:w-6 text-white" />
         <PlusIcon className="absolute -right-2 -top-2 z-10 h-4 w-4 sm:-right-3 sm:-top-3 sm:h-6 sm:w-6 text-white" />
@@ -158,8 +158,8 @@ function ProjectCard({
 export default function Projects({ data }: { data?: Project[] }) {
   const projectList = data ?? projects;
   return (
-    <section id="projects" className="relative w-full py-12 sm:py-24 lg:py-32">
-      <div className="mx-auto w-full max-w-6xl px-8 sm:px-10 lg:px-16">
+    <section id="projects" className="relative w-full py-16 sm:py-24 lg:py-32">
+      <div className="mx-auto w-full max-w-6xl px-6 sm:px-10 lg:px-16">
         {/* Section heading */}
         <div className="mb-16 text-center">
           <BlurFade delay={0.04} inView>
@@ -179,12 +179,12 @@ export default function Projects({ data }: { data?: Project[] }) {
         </div>
 
         {/* Project grid */}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {projectList.map((project, idx) => (
             <ProjectCard key={project.title} project={project} index={idx} />
           ))}
           {/* Placeholder card for 'and many more coming soon' */}
-          <div className="flex items-center justify-center h-full min-h-[200px] sm:min-h-[320px] max-w-[400px] w-full border border-dashed border-white/20 rounded-lg bg-white/5 text-center p-6 sm:p-8 mx-auto">
+          <div className="flex items-center justify-center h-full min-h-[200px] sm:min-h-[320px] w-full border border-dashed border-white/20 rounded-lg bg-white/5 text-center p-6 sm:p-8">
             <span className="text-base sm:text-lg text-neutral-400 font-semibold">and many more coming soon</span>
           </div>
         </div>

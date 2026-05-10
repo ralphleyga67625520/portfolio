@@ -66,15 +66,17 @@ function buildSocialEntries(socials: Record<string, string>) {
 /*  Mobile Bottom Bar                                                  */
 /* ------------------------------------------------------------------ */
 
+function smoothScrollTo(href: string) {
+  const id = href.replace("#", "");
+  const el = document.getElementById(id);
+  if (!el) return;
+  const top = el.getBoundingClientRect().top + window.scrollY;
+  window.scrollTo({ top, behavior: "smooth" });
+}
+
 function MobileBottomBar({ socials }: { socials: Record<string, string> }) {
   const [showMore, setShowMore] = useState(false);
   const socialList = buildSocialEntries(socials);
-
-  const scrollTo = (href: string) => {
-    const id = href.replace("#", "");
-    const el = document.getElementById(id);
-    el?.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
     <div className="relative">
@@ -87,7 +89,7 @@ function MobileBottomBar({ socials }: { socials: Record<string, string> }) {
               <button
                 key={item.label}
                 onClick={() => {
-                  scrollTo(item.href);
+                  smoothScrollTo(item.href);
                   setShowMore(false);
                 }}
                 className="flex flex-col items-center gap-1 rounded-xl p-2 text-neutral-400 transition-colors hover:bg-white/8 hover:text-white"
@@ -125,7 +127,7 @@ function MobileBottomBar({ socials }: { socials: Record<string, string> }) {
         {MOBILE_NAV.map((item) => (
           <button
             key={item.label}
-            onClick={() => scrollTo(item.href)}
+            onClick={() => smoothScrollTo(item.href)}
             className="flex h-10 w-10 items-center justify-center rounded-xl text-neutral-400 transition-colors hover:bg-white/10 hover:text-white active:scale-95"
             aria-label={item.label}
           >
@@ -159,11 +161,7 @@ export function DockDemo({ socials }: { socials?: Record<string, string> }) {
   const socialList = buildSocialEntries(socialLinks);
   const isDesktop = useMediaQuery("(min-width: 640px)");
 
-  const scrollTo = (href: string) => {
-    const id = href.replace("#", "");
-    const el = document.getElementById(id);
-    el?.scrollIntoView({ behavior: "smooth" });
-  };
+  const scrollTo = smoothScrollTo;
 
   /* On mobile: compact bottom bar */
   if (!isDesktop) {
