@@ -153,24 +153,16 @@ const projectsData = [
 const certificationsData = [
   {
     name: "Data Structures & Algorithms - Programming Pathshala",
-    image: "https://ik.imagekit.io/lmpthl5suv/dsacerti.png",
+    image: "/education/college.jpg",
     link: "https://drive.google.com/file/d/1un2PymsO93PIhpEJ282hbBf86b-CCnIG/view",
     order: 0,
-  },
-  {
-    name: "PostMan API Fundamentals Student Expert",
-    image: "https://ik.imagekit.io/lmpthl5suv/posstmancerti.png",
-    link: "https://drive.google.com/file/d/13eaG2KiXAzNi9rNhWeJNjKnOZycAA4uP/view?usp=sharing",
-    order: 1,
   },
 ];
 
 const socialsData = [
   { platform: "GitHub", url: "https://github.com/ayyush08", order: 0 },
   { platform: "LinkedIn", url: "https://www.linkedin.com/in/ayush2908/", order: 1 },
-  { platform: "LeetCode", url: "https://leetcode.com/u/ayyush_08/", order: 2 },
-  { platform: "Codeforces", url: "https://codeforces.com/profile/ayushkumargupta2908", order: 3 },
-  { platform: "X", url: "https://x.com/Ayush29081", order: 4 },
+  { platform: "Codeforces", url: "https://codeforces.com/profile/ayushkumargupta2908", order: 2 },
 ];
 
 const skillCategoriesData = [

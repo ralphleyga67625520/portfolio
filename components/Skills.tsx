@@ -61,6 +61,28 @@ interface LearningItem {
 /*  Helpers — convert DB data to component format                      */
 /* ------------------------------------------------------------------ */
 
+function getSkillIconKey(skill: { name: string; iconKey?: string }) {
+  const normalizedName = skill.name.trim().toLowerCase();
+  const normalizedKey = skill.iconKey?.trim().toLowerCase();
+
+  const fallbackMap: Record<string, string> = {
+    "react.js": "react",
+    "next.js": "nextjs",
+    "express.js": "express",
+    "node.js": "nodejs",
+    "tailwind css": "tailwindcss",
+    "shadcn ui": "shadcn",
+    "rest api": "restapi",
+    "graphql": "graphql",
+    "c++": "cpp",
+    "django": "django",
+  };
+
+  if (normalizedKey) return normalizedKey;
+  if (fallbackMap[normalizedName]) return fallbackMap[normalizedName];
+  return normalizedName.replace(/[^a-z0-9]/g, "");
+}
+
 function resolveCategories(data: SkillCategoryData[]): SkillCategory[] {
   return data.map((d) => ({
     title: d.title,
@@ -72,7 +94,7 @@ function resolveCategories(data: SkillCategoryData[]): SkillCategory[] {
     span: d.span,
     skills: d.skills.map((s) => ({
       name: s.name,
-      icon: skillIconMap[s.iconKey] ?? Icons.github,
+      icon: skillIconMap[getSkillIconKey(s)] ?? Icons.github,
     })),
   }));
 }
@@ -117,6 +139,7 @@ const fallbackCategories: SkillCategory[] = [
       { name: "Shadcn UI", icon: Icons.shadcn },
       { name: "Redux", icon: Icons.redux },
       { name: "TanStack Query", icon: Icons.tanstack },
+      { name: "Django", icon: Icons.django },
     ],
   },
   {

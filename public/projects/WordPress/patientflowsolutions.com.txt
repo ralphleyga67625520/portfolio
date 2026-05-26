@@ -1,0 +1,35 @@
+Patient Flow Solutions
+Patient Flow Solutions is a specialized AI-powered marketing platform designed exclusively for dental practices. The goal of the website was to clearly communicate their value proposition: consistently attracting high-value dental patients while saving time and ad spend.
+
+January 15, 2026
+Visit Live Site
+
+Overview
+I created a professional, user-friendly website that highlights their AI-driven marketing approach, multi-channel campaigns, and automated lead nurturing systems. The site provides clear pathways for potential clients to understand the services, book consultations, and track campaign performance.
+
+Key Features Implemented
+Key Features Implemented
+
+Service Presentation & Booking: Designed clear sections explaining how Patient Flow Solutions fills dental chairs with high-value patients using AI-powered targeting and automation. Integrated prominent call-to-action buttons for booking strategy calls.
+
+Multi-Channel Campaign Highlights: Developed content sections for Facebook, Google, and LinkedIn campaigns, showing potential clients how the system reaches patients across multiple platforms.
+
+Automated Lead Nurturing: Illustrated the automated follow-ups, appointment reminders, and engagement sequences to ensure no leads are lost, enhancing user trust and clarity.
+
+Process Overview: Created step-by-step visuals for Discovery & Strategy, Campaign Setup, and Automated Lead Nurturing to educate clients about the workflow and ROI.
+
+Contact & Support Integration: Added easy-to-find contact info and clear call-to-action elements for booking free strategy calls.
+
+Analytics & Transparency: Incorporated sections highlighting Google Ads weekly performance summaries, helping build trust with prospective clients.
+
+Design Approach
+The design focuses on clarity, professionalism, and trust:
+
+Clean, modern layout using Divi’s visual builder for responsive and mobile-friendly design.
+
+Highlighted key benefits with concise copy and visual hierarchy to guide user attention.
+
+CTA-focused sections strategically placed to increase conversion and lead generation.
+
+Outcome
+The finished website clearly communicates Patient Flow Solutions’ expertise, builds trust with dental practices, and encourages action through strategy call bookings. It combines compelling visuals, clear messaging, and intuitive navigation to maximize conversions and support their AI-driven patient acquisition services.

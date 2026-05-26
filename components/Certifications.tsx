@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { BlurFade } from "@/components/ui/blur-fade";
-import { certifications, type Certification } from "@/lib/certifications";
+import { Certifications as certificationsData, type Certification } from "@/lib/certifications";
 
 /* ------------------------------------------------------------------ */
 /*  Certification Card — horizontal wide card with tilt               */
@@ -75,7 +75,7 @@ function CertificationCard({
           {/* Right — Name & link */}
           <div className="relative z-1 flex flex-1 flex-col justify-center gap-2.5 p-4 sm:gap-4 sm:p-6 md:p-8">
             {/* Badge + name */}
-            <div className="flex items-start gap-3">
+            <div className="flex items-center gap-3">
               <div
                 className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-white/10"
                 style={{
@@ -102,28 +102,16 @@ function CertificationCard({
 
             {/* Optional link */}
             {cert.link && (
-              <Link
-                href={cert.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group/link inline-flex w-fit items-center gap-1.5 rounded-sm  border px-3 py-1.5 text-xs font-medium transition-colors duration-300 sm:text-sm"
+              <p
+                className="inline-flex w-fit items-center gap-1.5 rounded-sm border px-3 py-1.5 text-xs font-medium sm:text-sm"
                 style={{
                   color: accent.from,
                   borderColor: `${accent.from}25`,
                   backgroundColor: `${accent.from}08`,
                 }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = `${accent.from}50`;
-                  e.currentTarget.style.backgroundColor = `${accent.from}14`;
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = `${accent.from}25`;
-                  e.currentTarget.style.backgroundColor = `${accent.from}08`;
-                }}
               >
-                View Credential
-                <ExternalLink className="h-3.5 w-3.5 transition-transform duration-300 ease-out group-hover/link:translate-x-0.5" />
-              </Link>
+                Bachelor of Science in Information Management
+              </p>
             )}
           </div>
 
@@ -145,28 +133,28 @@ function CertificationCard({
 /* ------------------------------------------------------------------ */
 
 export default function Certifications({ data }: { data?: Certification[] }) {
-  const certList = data ?? certifications;
+  const certList = data ?? certificationsData;
   if (certList.length === 0) return null;
 
   return (
     <section
-      id="certifications"
+      id="Certifications"
       className="relative w-full py-16 sm:py-24 lg:py-32"
     >
-      <div className="mx-auto w-full max-w-4xl px-6 sm:px-10 lg:px-16">
+      <div className="mx-auto w-full max-w-6xl px-6 sm:px-10 lg:px-16">
         {/* Section heading */}
         <div className="mb-16 text-center">
           <BlurFade delay={0.04} inView>
             <h2 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-5xl">
               <span className="bg-linear-to-r from-white to-neutral-500 bg-clip-text text-transparent">
-                Certifications
+                Education
               </span>
             </h2>
           </BlurFade>
 
           <BlurFade delay={0.12} inView>
             <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Professional certifications and credentials I&apos;ve earned
+              Professional Certifications and credentials I&apos;ve earned
               along the way.
             </p>
           </BlurFade>

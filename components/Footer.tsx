@@ -20,7 +20,7 @@ const socialDisplay: {
 }[] = [
   { key: "GitHub", icon: Icons.github, label: "GitHub" },
   { key: "LinkedIn", icon: Icons.linkedin, label: "LinkedIn" },
-  { key: "LeetCode", icon: Icons.leetcode, label: "LeetCode" },
+  { key: "Telegram", icon: Icons.telegram, label: "Telegram" },
 ];
 
 export default function Footer({

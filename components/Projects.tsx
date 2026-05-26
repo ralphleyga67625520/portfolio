@@ -113,15 +113,15 @@ function ProjectCard({
 
             {/* Links */}
             <div className="mt-2 flex flex-wrap items-center gap-2 border-t border-white/6 pt-2 sm:mt-3 sm:gap-3 sm:pt-3">
-              <Link
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-lg border border-white/8 bg-white/3 px-2.5 py-1 text-[11px] font-medium text-neutral-400 transition-all duration-200 hover:border-white/20 hover:bg-white/6 hover:text-white sm:px-3 sm:py-1.5 sm:text-xs"
+              <button
+                type="button"
+                disabled
+                className="inline-flex cursor-not-allowed items-center gap-1.5 rounded-lg border border-white/8 bg-white/3 px-2.5 py-1 text-[11px] font-medium text-neutral-500 opacity-50 transition-all duration-200 sm:px-3 sm:py-1.5 sm:text-xs"
+                aria-label="Source Code (disabled)"
               >
                 <Github className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
                 Source Code
-              </Link>
+              </button>
               {project.liveUrl && (
                 <Link
                   href={project.liveUrl}

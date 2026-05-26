@@ -25,7 +25,7 @@ export default function CertificationsAdmin() {
   const [loading, setLoading] = useState(true);
 
   async function load() {
-    const res = await fetch("/api/admin/certifications");
+    const res = await fetch("/api/admin/Certifications");
     const data = await res.json();
     setItems(data);
     setLoading(false);
@@ -33,7 +33,7 @@ export default function CertificationsAdmin() {
 
   useEffect(() => {
     void (async () => {
-      const res = await fetch("/api/admin/certifications");
+      const res = await fetch("/api/admin/Certifications");
       const data = await res.json();
       setItems(data);
       setLoading(false);
@@ -55,13 +55,13 @@ export default function CertificationsAdmin() {
   async function save() {
     if (!editing) return;
     if (isNew) {
-      await fetch("/api/admin/certifications", {
+      await fetch("/api/admin/Certifications", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(editing),
       });
     } else {
-      await fetch(`/api/admin/certifications/${editing._id}`, {
+      await fetch(`/api/admin/Certifications/${editing._id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(editing),
@@ -73,7 +73,7 @@ export default function CertificationsAdmin() {
 
   async function remove(id: string) {
     if (!confirm("Delete this certification?")) return;
-    await fetch(`/api/admin/certifications/${id}`, { method: "DELETE" });
+    await fetch(`/api/admin/Certifications/${id}`, { method: "DELETE" });
     load();
   }
 
@@ -134,7 +134,7 @@ export default function CertificationsAdmin() {
               </tr>
             ))}
             {items.length === 0 && (
-              <tr><td colSpan={4} className="px-4 py-8 text-center text-neutral-500">No certifications yet.</td></tr>
+              <tr><td colSpan={4} className="px-4 py-8 text-center text-neutral-500">No Certifications yet.</td></tr>
             )}
           </tbody>
         </table>

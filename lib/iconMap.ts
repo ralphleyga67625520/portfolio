@@ -34,6 +34,7 @@ export const skillIconMap: Record<string, IconRenderer> = {
   prisma: Icons.prisma,
   github: Icons.github,
   firebase: Icons.firebase,
+  django: Icons.django,
   html: Icons.html,
   css: Icons.css,
   java: Icons.java,
@@ -64,6 +65,7 @@ export const categoryIconMap: Record<string, LucideIcon> = {
 export const socialIconMap: Record<string, IconRenderer> = {
   GitHub: Icons.github,
   LinkedIn: Icons.linkedin,
+  Telegram: Icons.telegram,
   X: Icons.x,
   LeetCode: Icons.leetcode,
   YouTube: Icons.youtube,

@@ -4,7 +4,6 @@ import { Trophy, CheckCircle2 } from "lucide-react";
 import { StatCard } from "./StatCard";
 import type { StatCardData } from "./types";
 import type { LeetCodeStats } from "@/lib/leetcode";
-import { socials } from "@/lib/socials";
 
 const DIFFICULTY_ACCENTS = {
   easy: "border-emerald-500/30 bg-emerald-500/10 text-emerald-400 dark:border-emerald-400/25 dark:bg-emerald-400/8 dark:text-emerald-300",
@@ -37,7 +36,6 @@ function buildStats(d: {
       gradientFrom: COLOR,
       gradientTo: "#EF4444",
       prominent: true,
-      profileUrl: socials.LeetCode,
     },
     {
       id: "Problems Solved",

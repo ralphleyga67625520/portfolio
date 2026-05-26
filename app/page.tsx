@@ -7,8 +7,7 @@ import ProjectsSection from "@/components/sections/ProjectsSection";
 import CertificationsSection from "@/components/sections/CertificationsSection";
 import ExperienceSection from "@/components/sections/ExperienceSection";
 import ContactSection from "@/components/sections/ContactSection";
-import CompetitiveProgramming from "@/components/CP";
-
+import VisitTracker from "@/components/VisitTracker";
 import {
   HeroSkeleton,
   AboutSkeleton,
@@ -34,8 +33,6 @@ export default function Home() {
         <SkillsSection />
       </Suspense>
 
-      <CompetitiveProgramming />
-
       <Suspense fallback={<ProjectsSkeleton />}>
         <ProjectsSection />
       </Suspense>
@@ -47,6 +44,7 @@ export default function Home() {
       <ExperienceSection />
 
       <ContactSection />
+      <VisitTracker />
     </main>
   );
 }

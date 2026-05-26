@@ -40,7 +40,7 @@ export async function POST(req: NextRequest) {
   if (heroCount === 0) {
     await HeroModel.create({
       greeting: "Hey, I'm",
-      name: "Ayush",
+      name: "Ralph",
       tagline:
         "Full-stack developer who turns ideas into fast, polished products — one clean commit at a time.",
       splineUrl:
@@ -55,9 +55,9 @@ export async function POST(req: NextRequest) {
   const aboutCount = await AboutModel.countDocuments();
   if (aboutCount === 0) {
     await AboutModel.create({
-      heading: "Who I am & What I offer",
+      heading: "Who am I & What can I offer",
       paragraphs: [
-        "I'm Ayush Kumar Gupta — a full-stack developer with a sharp eye for clean architecture and a deep love for solving hard problems. From crafting intuitive UIs to designing scalable backends, I build products that are fast, reliable, and a joy to use.",
+        "I'm Ralph Leyga — Full-Stack Engineer with 8+ years of experience architecting and scaling SaaS platforms, web applications, and cloud-based systems. Specialized in Python, Django, JavaScript/​TypeScript, REST APIs, and database optimization. Delivered secure, high-performance SaaS applications supporting scalable cloud infrastructure, backend reliability, and modern software architecture across startup and agile environments.",
         "Competitive programmer at heart, builder by habit — I thrive at the intersection of performance, design, and developer experience.",
       ],
     });
@@ -71,89 +71,115 @@ export async function POST(req: NextRequest) {
   if (projectCount === 0) {
     await Project.insertMany([
       {
-        title: "CuraTube",
+        title: "Unified Travel Booking",
         subtitle: "A fully-featured video streaming platform",
         description:
-          "A full-stack video streaming platform that supports a handful of cool features similar to any other video streaming application out there.",
+          "The front-end is built with ReactJS and NextJS, providing a fast and responsive user experience. The backend uses NodeJS and ExpressJS to handle API integrations and manage booking data stored in MongoDB.",
         image: "https://ik.imagekit.io/lmpthl5suv/curatube-dummy.png",
-        githubUrl: "https://github.com/ayyush08/CuraTube",
-        liveUrl: "https://curatube.vercel.app",
-        tags: ["MERN", "TanStack Query", "TanStack Router", "Cloudinary", "MongoDB", "Signed uploads"],
+        githubUrl: "#",
+        liveUrl: "https://brokr-three.vercel.app",
+        tags: ["TypeScript", "ReactJS", "NextJS", "TailwindCSS", "NodeJS", "ExpressJS", "Supabase", "PostgreSQL", "Stripe", "GitHub"],
         accentColor: "#FF4040",
         order: 0,
       },
       {
-        title: "CuraVibe",
+        title: "Easy Clothes – Online Women’s Fashion Retail Store",
         subtitle: "a full-stack developer portfolio builder",
         description:
-          "A browser-based IDE that brings a professional development environment with AI directly to your browser.",
+          "Easy Clothes is an online fashion store offering European and French-style women’s clothing to customers in the US and Canada.",
         image: "https://ik.imagekit.io/lmpthl5suv/curavibe-dummy.png",
-        githubUrl: "https://github.com/ayyush08/CuraVibe",
-        liveUrl: "https://curavibe.vercel.app",
-        tags: ["Next.js", "NextAuth", "Prisma", "MongoDB", "MonacoEditor", "AI", "Github Integration"],
+        githubUrl: "#",
+        liveUrl: "https://easy-clothes.us",
+        tags: ["Shopify", "Web Hosting", "eCommerce Platform", "SSL/HTTPS"],
         accentColor: "#3B82F6",
         order: 1,
       },
       {
-        title: "Inkognito",
+        title: "KavarSa",
         description:
-          "A web application that allows users to send messages anonymously.",
+          "Easy Clothes is an online fashion store offering European and French-style women’s clothing to customers in the US and Canada.",
         image: "https://ik.imagekit.io/lmpthl5suv/ink.jpg?updatedAt=1748963140186",
-        githubUrl: "https://github.com/ayyush08/Inkognito",
-        tags: ["Next.js", "NextAuth", "MongoDB", "Zod", "Resend", "Gemini API", "Shadcn UI"],
+        githubUrl: "#",
+        liveUrl: "https://kavarsa.com",
+        tags: ["Shopify", "Web Hosting", "eCommerce Platform", "SSL/HTTPS"],
         accentColor: "#FF8C00",
         order: 2,
       },
       {
-        title: "HarmoniQ",
+        title: "Crypto King Checkmate",
         subtitle: "AI sound Designer",
-        description:
-          "A web application that provides an interface for users to generate sounds of their choice using a simple prompt and save them to their profile.",
+        description: "Crypto King Checkmate is a full-featured cryptocurrency trading platform built to provide users with a seamless experience for managing and trading digital assets. The platform integrates with cryptocurrency APIs to provide real-time market data and enable secure trading operations.",
         image: "https://ik.imagekit.io/lmpthl5suv/harmoniq-dummy.png",
-        githubUrl: "https://github.com/ayyush08/HarmoniQ",
-        tags: ["Next.js", "MongoDB", "FastAPI", "Python", "Gemini API", "HuggingFace Models"],
+        githubUrl: "#",
+        liveUrl: "https://crypto-checkmate.vercel.app",
+        tags: ["HTML5", "CSS3", "JavaScript", "ReactJS", "NextJS", "TailwindCSS", "NodeJS", "ExpressJS", "MongoDB", "Git", "Github"],
         accentColor: "#8B5CF6",
         order: 3,
       },
+      {
+        title: "Game Hub",
+        subtitle: "AI sound Designer",
+        description: "Crypto King Checkmate is a full-featured cryptocurrency trading platform built to provide users with a seamless experience for managing and trading digital assets. The platform integrates with cryptocurrency APIs to provide real-time market data and enable secure trading operations.",
+        image: "https://ik.imagekit.io/lmpthl5suv/harmoniq-dummy.png",
+        githubUrl: "#",
+        liveUrl: "https://game-hub-jet-three.vercel.app",
+        tags: ["HTML5", "CSS3", "JavaScript", "ReactJS", "NextJS", "TailwindCSS", "NodeJS", "ExpressJS", "MongoDB", "Git", "Github"],
+        accentColor: "#5cf6a9",
+        order: 4,
+      },
+      {
+        title: "Apple Phone",
+        subtitle: "AI sound Designer",
+        description: "The architecture prioritizes performance through code splitting, lazy loading of 3D assets, and efficient rendering techniques. The responsive design ensures the experience remains smooth and visually impressive across desktop, tablet, and mobile devices.",
+        image: "https://ik.imagekit.io/lmpthl5suv/harmoniq-dummy.png",
+        githubUrl: "#",
+        liveUrl: "https://app-iphone.netlify.app",
+        tags: ["TypeScript", "ReactJS", "NextJS", "TailwindCSS", "JavaScript", "CSS3", "HTML5", "PostgreSQL", "GitHub"],
+        accentColor: "#975cf6",
+        order: 5,
+      },
+      {
+        title: "Whop Deal Challenge",
+        subtitle: "AI sound Designer",
+        description: "The Whop Deal Challenge page is built as a focused funnel, combining a bold hero, a simple explanation of the 7 days, and a frictionless signup form.",
+        image: "https://ik.imagekit.io/lmpthl5suv/harmoniq-dummy.png",
+        githubUrl: "#",
+        liveUrl: "https://3challenge-whop-deal.vercel.app/",
+        tags: ["TypeScript", "ReactJS", "NextJS", "TailwindCSS", "JavaScript", "CSS3", "HTML5", "PostgreSQL", "GitHub"],
+        accentColor: "#975cf6",
+        order: 6,
+      }
     ]);
     results.projects = `Created 4`;
   } else {
     results.projects = `Already has ${projectCount}`;
   }
 
-  // 5. Seed certifications
+  // 5. Seed Certifications
   const certCount = await Certification.countDocuments();
   if (certCount === 0) {
     await Certification.insertMany([
       {
-        name: "Data Structures & Algorithms - Programming Pathshala",
-        image: "https://ik.imagekit.io/lmpthl5suv/dsacerti.png",
+        name: "Notre Dame of Midsayap College",
+        image: "/education/college.jpg",
         link: "https://drive.google.com/file/d/1un2PymsO93PIhpEJ282hbBf86b-CCnIG/view",
         order: 0,
       },
-      {
-        name: "PostMan API Fundamentals Student Expert",
-        image: "https://ik.imagekit.io/lmpthl5suv/posstmancerti.png",
-        link: "https://drive.google.com/file/d/13eaG2KiXAzNi9rNhWeJNjKnOZycAA4uP/view?usp=sharing",
-        order: 1,
-      },
     ]);
-    results.certifications = `Created 2`;
+    results.Certifications = `Created 2`;
   } else {
-    results.certifications = `Already has ${certCount}`;
+    results.Certifications = `Already has ${certCount}`;
   }
 
   // 6. Seed socials
   const socialCount = await Social.countDocuments();
   if (socialCount === 0) {
     await Social.insertMany([
-      { platform: "GitHub", url: "https://github.com/ayyush08", order: 0 },
-      { platform: "LinkedIn", url: "https://www.linkedin.com/in/ayush2908/", order: 1 },
-      { platform: "LeetCode", url: "https://leetcode.com/u/ayyush_08/", order: 2 },
-      { platform: "Codeforces", url: "https://codeforces.com/profile/ayushkumargupta2908", order: 3 },
-      { platform: "X", url: "https://x.com/Ayush29081", order: 4 },
+      { platform: "GitHub", url: "https://github.com/ralphleyga67625520", order: 0 },
+      { platform: "LinkedIn", url: "https://www.linkedin.com/in/ralph-leyga-67625520/", order: 1 },
+      { platform: "Codeforces", url: "https://codeforces.com/profile/Ralphkumargupta2908", order: 2 },
     ]);
-    results.socials = `Created 5`;
+    results.socials = `Created 3`;
   } else {
     results.socials = `Already has ${socialCount}`;
   }

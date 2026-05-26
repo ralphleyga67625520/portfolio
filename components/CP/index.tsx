@@ -4,26 +4,20 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { BorderBeam } from "@/components/ui/border-beam";
-import { useLeetCodeStats } from "@/hooks/useLeetCodeStats";
 import { useCodeforcesStats } from "@/hooks/useCodeforcesStats";
-import { LeetCodeTab } from "./LeetCodeTab";
 import { CodeforcesTab } from "./CodeforcesTab";
 
-const LEETCODE_USERNAME = "ayyush_08";
-const CF_HANDLE = "ayushkumargupta2908";
+const CF_HANDLE = "Ralphkumargupta2908";
 
 const TABS = [
-  { id: "leetcode", label: "LeetCode" },
   { id: "codeforces", label: "Codeforces" },
 ] as const;
 
 type TabId = (typeof TABS)[number]["id"];
 
 export default function CompetitiveProgramming() {
-  const [active, setActive] = useState<TabId>("leetcode");
+  const [active, setActive] = useState<TabId>("codeforces");
 
-  // Fetch once at section level — persists across tab switches
-  const leetcode = useLeetCodeStats(LEETCODE_USERNAME);
   const codeforces = useCodeforcesStats(CF_HANDLE);
 
   return (
@@ -85,11 +79,7 @@ export default function CompetitiveProgramming() {
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.25, ease: "easeInOut" }}
             >
-              {active === "leetcode" ? (
-                <LeetCodeTab data={leetcode.data} isLoading={leetcode.isLoading} />
-              ) : (
-                <CodeforcesTab data={codeforces.data} isLoading={codeforces.isLoading} />
-              )}
+              <CodeforcesTab data={codeforces.data} isLoading={codeforces.isLoading} />
             </motion.div>
           </AnimatePresence>
         </BlurFade>

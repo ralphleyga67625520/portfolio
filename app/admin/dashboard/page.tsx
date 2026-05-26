@@ -5,7 +5,7 @@ import { FolderOpen, Award, Share2, Wrench } from "lucide-react";
 
 interface Counts {
   projects: number;
-  certifications: number;
+  Certifications: number;
   skills: number;
   socials: number;
 }
@@ -13,7 +13,7 @@ interface Counts {
 export default function DashboardOverview() {
   const [counts, setCounts] = useState<Counts>({
     projects: 0,
-    certifications: 0,
+    Certifications: 0,
     skills: 0,
     socials: 0,
   });
@@ -21,13 +21,13 @@ export default function DashboardOverview() {
   useEffect(() => {
     Promise.all([
       fetch("/api/admin/projects").then((r) => r.json()),
-      fetch("/api/admin/certifications").then((r) => r.json()),
+      fetch("/api/admin/Certifications").then((r) => r.json()),
       fetch("/api/admin/skills").then((r) => r.json()),
       fetch("/api/admin/socials").then((r) => r.json()),
     ]).then(([projects, certs, skills, socials]) => {
       setCounts({
         projects: projects.length ?? 0,
-        certifications: certs.length ?? 0,
+        Certifications: certs.length ?? 0,
         skills: skills.length ?? 0,
         socials: socials.length ?? 0,
       });
@@ -36,7 +36,7 @@ export default function DashboardOverview() {
 
   const cards = [
     { label: "Projects", count: counts.projects, icon: FolderOpen, color: "text-blue-400" },
-    { label: "Certifications", count: counts.certifications, icon: Award, color: "text-amber-400" },
+    { label: "Certifications", count: counts.Certifications, icon: Award, color: "text-amber-400" },
     { label: "Skill Categories", count: counts.skills, icon: Wrench, color: "text-green-400" },
     { label: "Socials", count: counts.socials, icon: Share2, color: "text-purple-400" },
   ];

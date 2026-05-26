@@ -7,7 +7,7 @@ export interface ICertification extends Document {
   order: number;
 }
 
-const CertificationSchema = new Schema<ICertification>(
+const Certificationschema = new Schema<ICertification>(
   {
     name: { type: String, required: true },
     image: { type: String, required: true },
@@ -19,6 +19,6 @@ const CertificationSchema = new Schema<ICertification>(
 
 const Certification: Model<ICertification> =
   mongoose.models.Certification ||
-  mongoose.model<ICertification>("Certification", CertificationSchema);
+  mongoose.model<ICertification>("Certification", Certificationschema);
 
 export default Certification;

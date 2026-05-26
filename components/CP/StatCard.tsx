@@ -164,22 +164,6 @@ export function StatCard({ stat, index }: { stat: StatCardData; index: number })
           {/* Difficulty bar */}
           {stat.breakdown && <DifficultyBar items={stat.breakdown} />}
 
-          {/* Profile link */}
-          {stat.profileUrl && (
-            <div className="mt-auto pt-4">
-              <Link
-                href={stat.profileUrl}
-                target="_blank"
-                className="group/link flex items-center gap-1.5 text-xs font-medium text-muted-foreground transition-colors"
-                style={{ color: undefined }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = stat.color)}
-                onMouseLeave={(e) => (e.currentTarget.style.color = '')}
-              >
-                View Profile
-                <ExternalLink className="h-3 w-3 transition-transform group-hover/link:translate-x-0.5" />
-              </Link>
-            </div>
-          )}
         </div>
       </motion.div>
     </BlurFade>

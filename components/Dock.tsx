@@ -35,9 +35,8 @@ const DATA = {
     { href: "#hero", icon: ArrowUp, label: "To the top" },
     { href: "#about", icon: UserIcon, label: "About" },
     { href: "#skills", icon: WrenchIcon, label: "Skills" },
-    { href: "#competitive", icon: SwordsIcon, label: "Competitive Programming" },
     { href: "#projects", icon: FolderOpenIcon, label: "Projects" },
-    { href: "#certifications", icon: AwardIcon, label: "Certifications" },
+    { href: "#Certifications", icon: AwardIcon, label: "Certifications" },
     { href: "#experience", icon: BriefcaseIcon, label: "Experience" },
     { href: "#contact", icon: MailIcon, label: "Contact" },
   ],
@@ -53,7 +52,7 @@ const MOBILE_NAV = [
 
 function buildSocialEntries(socials: Record<string, string>) {
   return Object.entries(socials)
-    .filter(([platform]) => socialIconMap[platform]) // only show platforms with icons
+    .filter(([platform]) => platform !== "LeetCode" && socialIconMap[platform]) // only show supported platforms and hide LeetCode
     .map(([platform, url]) => ({
       name: platform,
       url,

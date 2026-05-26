@@ -35,9 +35,9 @@ interface AboutData {
 }
 
 export default function About({ data }: { data?: AboutData }) {
-  const heading = data?.heading || "Who I am & What I offer";
+  const heading = data?.heading || "Who am I & What can I offer";
   const paragraphs = data?.paragraphs || [
-    "I'm Ayush Kumar Gupta \u2014 a full-stack developer with a sharp eye for clean architecture and a deep love for solving hard problems. From crafting intuitive UIs to designing scalable backends, I build products that are fast, reliable, and a joy to use.",
+    "I'm Ralph Leyga \u2014 Full-Stack Engineer with 8+ years of experience architecting and scaling SaaS platforms, web applications, and cloud-based systems. Specialized in Python, Django, JavaScript/​TypeScript, REST APIs, and database optimization. Delivered secure, high-performance SaaS applications supporting scalable cloud infrastructure, backend reliability, and modern software architecture across startup and agile environments.",
     "Competitive programmer at heart, builder by habit \u2014 I thrive at the intersection of performance, design, and developer experience.",
   ];
 
@@ -56,8 +56,8 @@ export default function About({ data }: { data?: AboutData }) {
             {/* Center avatar */}
             <div className="relative z-10 flex h-32 w-32 items-center justify-center overflow-hidden rounded-full border border-white/15 bg-white/5 shadow-2xl shadow-white/5 backdrop-blur-sm sm:h-32 sm:w-32">
               <Image
-                src="https://ik.imagekit.io/lmpthl5suv/1774446176731.png?updatedAt=1774456690946"
-                alt="Ayush Kumar Gupta"
+                src="/avatar.jpg"
+                alt="Ralph Leyga"
                 width={128}
                 height={128}
                 className="h-full w-full rounded-full object-cover crop-center"
@@ -98,9 +98,9 @@ export default function About({ data }: { data?: AboutData }) {
               className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-5xl"
             >
               <span className="bg-linear-to-r from-white to-neutral-500 bg-clip-text text-transparent">
-                Who I am
+                Who am I
                 <br />
-                &amp; What I offer
+                &amp; What can I offer
               </span>
             </motion.h2>
 

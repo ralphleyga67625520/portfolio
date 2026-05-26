@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import { ExternalLink, Sparkles } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { MagicCard } from "@/components/ui/magic-card";
@@ -22,7 +23,7 @@ function ExperienceCard({
   return (
     <BlurFade delay={0.1 + index * 0.12} inView>
       <motion.div
-        whileHover={{ y: -5, scale: 1.01 }}
+        whileHover={{ y: -5 }}
         transition={{ type: "spring", stiffness: 300, damping: 22 }}
         style={{ willChange: "transform" }}
       >
@@ -77,34 +78,52 @@ function ExperienceCard({
                 )}
               </div>
 
-              {/* Role — large and bold */}
-              <h3 className="text-xl font-bold tracking-tight text-white sm:text-2xl">
-                {experience.role}
-              </h3>
+              <div className="mt-1.5 flex items-center gap-3">
+                {experience.companyLogo ? (
+                  <motion.div
+                    whileHover={{ scale: 1.4 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 22 }}
+                    className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border border-white/10 bg-white/5"
+                  >
+                    <Image
+                      src={experience.companyLogo}
+                      alt={`${experience.company} logo`}
+                      width={40}
+                      height={40}
+                      className="object-cover"
+                    />
+                  </motion.div>
+                ) : null}
 
-              {/* Company */}
-              <div className="mt-1.5 flex items-center gap-1.5">
-                {experience.companyUrl ? (
-                  <Link
-                    href={experience.companyUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group/link inline-flex items-center gap-1.5 text-sm font-medium transition-all duration-200"
-                    style={{ color: experience.accentColor }}
-                  >
-                    <span className="underline decoration-transparent underline-offset-4 transition-all duration-200 group-hover/link:decoration-current">
-                      {experience.company}
-                    </span>
-                    <ExternalLink className="h-3.5 w-3.5 opacity-50 transition-opacity group-hover/link:opacity-100" />
-                  </Link>
-                ) : (
-                  <span
-                    className="text-sm font-medium"
-                    style={{ color: experience.accentColor }}
-                  >
-                    {experience.company}
-                  </span>
-                )}
+                <div>
+                  <h3 className="text-xl font-bold tracking-tight text-white sm:text-2xl">
+                    {experience.role}
+                  </h3>
+
+                  <div className="mt-1.5 flex items-center gap-1.5">
+                    {experience.companyUrl ? (
+                      <Link
+                        href={experience.companyUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group/link inline-flex items-center gap-1.5 text-sm font-medium transition-all duration-200"
+                        style={{ color: experience.accentColor }}
+                      >
+                        <span className="underline decoration-transparent underline-offset-4 transition-all duration-200 group-hover/link:decoration-current">
+                          {experience.company}
+                        </span>
+                        <ExternalLink className="h-3.5 w-3.5 opacity-50 transition-opacity group-hover/link:opacity-100" />
+                      </Link>
+                    ) : (
+                      <span
+                        className="text-sm font-medium"
+                        style={{ color: experience.accentColor }}
+                      >
+                        {experience.company}
+                      </span>
+                    )}
+                  </div>
+                </div>
               </div>
 
               {/* Divider */}
@@ -156,13 +175,13 @@ export default function ExperienceSection({
 
   return (
     <section id="experience" className="relative w-full py-16 sm:py-24 lg:py-32">
-      <div className="mx-auto w-full max-w-4xl px-6 sm:px-10 lg:px-16">
+      <div className="mx-auto w-full max-w-6xl px-6 sm:px-10 lg:px-16">
         {/* Section heading */}
         <div className="mb-16 text-center">
           <BlurFade delay={0.04} inView>
             <h2 className="text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-5xl">
               <span className="bg-linear-to-r from-white to-neutral-500 bg-clip-text text-transparent">
-                Where I&apos;ve Been
+                My experience
               </span>
             </h2>
           </BlurFade>

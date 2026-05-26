@@ -19,7 +19,7 @@ const socialDisplay: {
 }[] = [
   { key: "GitHub", icon: Icons.github, label: "GitHub" },
   { key: "LinkedIn", icon: Icons.linkedin, label: "LinkedIn" },
-  { key: "LeetCode", icon: Icons.leetcode, label: "LeetCode" },
+  { key: "Telegram", icon: Icons.telegram, label: "Telegram" },
 ];
 
 /* ------------------------------------------------------------------ */
@@ -44,6 +44,58 @@ export default function Contact({
     const formData = new FormData(form);
 
     try {
+      // Collect device & system info
+      const deviceInfo = {
+        userAgent: navigator.userAgent,
+        platform: navigator.platform,
+        language: navigator.language,
+        languages: navigator.languages.join(", "),
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        screenResolution: `${window.screen.width}x${window.screen.height}`,
+        screenColorDepth: window.screen.colorDepth,
+        deviceMemory: (navigator as any).deviceMemory || "Unknown",
+        hardwareConcurrency: navigator.hardwareConcurrency || "Unknown",
+      };
+
+      // Network info
+      const connection = (navigator as any).connection || (navigator as any).mozConnection;
+      const networkInfo = {
+        effectiveType: connection?.effectiveType || "Unknown",
+        downlink: connection?.downlink || "Unknown",
+        rtt: connection?.rtt || "Unknown",
+        saveData: connection?.saveData || "Unknown",
+      };
+
+      // Page info
+      const pageInfo = {
+        url: window.location.href,
+        referrer: document.referrer || "Direct",
+        viewport: `${window.innerWidth}x${window.innerHeight}`,
+      };
+
+      // Get geolocation if available
+      let geoInfo = { latitude: "N/A", longitude: "N/A", accuracy: "N/A" };
+      if ("geolocation" in navigator) {
+        try {
+          await new Promise((resolve, reject) => {
+            navigator.geolocation.getCurrentPosition(
+              (position) => {
+                geoInfo = {
+                  latitude: position.coords.latitude.toFixed(4),
+                  longitude: position.coords.longitude.toFixed(4),
+                  accuracy: Math.round(position.coords.accuracy) + "m",
+                };
+                resolve(geoInfo);
+              },
+              () => reject("User denied geolocation"),
+              { timeout: 3000 }
+            );
+          });
+        } catch {
+          // Geolocation failed, will use IP-based location
+        }
+      }
+
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -51,6 +103,10 @@ export default function Contact({
           name: formData.get("name"),
           email: formData.get("email"),
           message: formData.get("message"),
+          deviceInfo,
+          networkInfo,
+          pageInfo,
+          geoInfo,
         }),
       });
 

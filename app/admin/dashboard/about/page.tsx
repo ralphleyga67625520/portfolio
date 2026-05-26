@@ -10,7 +10,7 @@ interface AboutData {
 
 export default function AboutAdmin() {
   const [data, setData] = useState<AboutData>({
-    heading: "Who I am & What I offer",
+    heading: "Who am I & What can I offer",
     paragraphs: ["", ""],
   });
   const [loading, setLoading] = useState(true);

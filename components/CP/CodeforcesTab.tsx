@@ -142,17 +142,6 @@ export function CodeforcesTab({ data, isLoading }: CodeforcesTabProps) {
             </div>
           </div>
 
-          {/* Profile link */}
-          <div className="flex justify-end px-6 pb-4 sm:px-8">
-            <Link
-              href={socials.Codeforces}
-              target="_blank"
-              className="group/link flex items-center gap-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-blue-400"
-            >
-              View Profile
-              <ExternalLink className="h-3 w-3 transition-transform group-hover/link:translate-x-0.5" />
-            </Link>
-          </div>
         </motion.div>
       </BlurFade>
     </div>

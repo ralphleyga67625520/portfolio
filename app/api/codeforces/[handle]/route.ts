@@ -17,11 +17,17 @@ export async function GET(
   try {
     const stats = await fetchCodeforcesStats(handle);
     return NextResponse.json(stats);
-  } catch (error) {
-    console.error("[Codeforces API]", error);
+  } catch (_error) {
+    // If Codeforces is unavailable or the handle request fails, return safe fallback stats.
     return NextResponse.json(
-      { error: error instanceof Error ? error.message : "Failed to fetch Codeforces stats" },
-      { status: 500 }
+      {
+        rating: 0,
+        maxRating: 0,
+        rank: "unrated",
+        maxRank: "unrated",
+        contestsAttended: 0,
+      },
+      { status: 200 }
     );
   }
 }

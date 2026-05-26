@@ -28,8 +28,8 @@ export class SplineErrorBoundary extends Component<Props, State> {
 
   componentDidCatch(error: Error, info: ErrorInfo) {
     // Silently swallow known Spline runtime errors
-    if (error.message === "Missing property") {
-      return; // Non-fatal — scene renders fine despite this
+      if (error?.message && error.message.includes("Missing property")) {
+        return; // Non-fatal — scene still renders
     }
     // Re-throw unknown errors
     console.error("Spline error:", error, info);

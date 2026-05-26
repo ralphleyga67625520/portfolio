@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react";
 import { LineShadowText } from "./ui/line-shadow-text";
-import Spline from "@splinetool/react-spline";
+import QuietSpline from "./QuietSpline";
 import { SplineErrorBoundary } from "./SplineErrorBoundary";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 
@@ -15,7 +15,7 @@ interface HeroData {
 
 export default function Hero({ data }: { data?: HeroData }) {
   const greeting = data?.greeting || "Hey, I'm";
-  const name = data?.name || "Ayush";
+  const name = data?.name || "Ralph";
   const tagline = data?.tagline || "Full-stack developer who turns ideas into fast, polished products\u00A0\u2014 one clean commit at a time.";
   const splineUrl = data?.splineUrl || "https://prod.spline.design/AeryvEqWxr2qjINc/scene.splinecode";
   const isDesktop = useMediaQuery("(min-width: 768px)");
@@ -75,6 +75,14 @@ export default function Hero({ data }: { data?: HeroData }) {
               >
                 View Work
               </button>
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-10 items-center rounded-lg border border-white/10 px-5 text-sm font-medium text-neutral-300 transition-colors hover:bg-white/5"
+              >
+                View Resume
+              </a>
               <button
                 onClick={() => {
                   const el = document.getElementById("contact");
@@ -97,7 +105,7 @@ export default function Hero({ data }: { data?: HeroData }) {
             >
               <div className="h-full w-full scale-125 pointer-events-none">
                 <SplineErrorBoundary>
-                  <Spline scene={splineUrl} />
+                  <QuietSpline scene={splineUrl} />
                 </SplineErrorBoundary>
               </div>
             </motion.div>

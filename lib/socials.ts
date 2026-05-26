@@ -1,7 +1,6 @@
 export const socials = {
-    GitHub: "https://github.com/ayyush08",
-    LinkedIn: "https://www.linkedin.com/in/ayush2908/",
-    LeetCode: "https://leetcode.com/u/ayyush_08/",
-    Codeforces: "https://codeforces.com/profile/ayushkumargupta2908",
-    X: "https://x.com/Ayush29081",
+    GitHub: "https://github.com/ralphleyga67625520",
+    LinkedIn: "https://www.linkedin.com/in/ralph-leyga-67625520/",
+    Telegram: "https://t.me/smile12151995",
+    Codeforces: "https://codeforces.com/profile/Ralphkumargupta2908",
 }
