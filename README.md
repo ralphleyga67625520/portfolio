@@ -1,6 +1,6 @@
 
 <div align="center">
-<img src="https://count.getloli.com/@Hunterdii?name=ralphleyga67625520&theme=booru-lewd&darkmode=0&num=67625520&padding=8"  width="430"> 
+<img src="https://count.getloli.com/@Hunterdii?name=ralphleyga67625520&theme=gelbooru&darkmode=0&num=67625520&padding=8"  width="600"> 
 </div>
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
